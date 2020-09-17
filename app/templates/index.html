@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+# Define the page title in the browser
+{% block title %}Glossa{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Glossa Machine Translations</h1>
+    <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
+      ({{ moment(current_time).fromNow(refresh=True) }}).</p>
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {% if not known %}
+    <p>Pleased to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}
