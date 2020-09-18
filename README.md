@@ -15,8 +15,8 @@ Web interface in Python Flask that allows users to enter text and get translatio
 4. Pip install the *requirements.txt*...
 5. Activate the environment...
 6. And finally, set the minimal environment variables:
-        $ python3 -m venv ./venv
-        $ pip install --upgrade pip
+> $ python3 -m venv ./venv
+> $ pip install --upgrade pip
         $ pip install -r requirements.txt
         $ source venv/bin/activate
         (venv) $ FLASK_APP=logos.py
