@@ -28,11 +28,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Glossa</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Logos</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.index') }}">Translate</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('main.themodels') }}">The Models</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('main.about') }}">About</a></li>
             </ul>
         </div>
     </div>

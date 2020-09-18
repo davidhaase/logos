@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+# Define the page title in the browser
+{% block title %}Logos{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>The Machine Translation Models</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egestas accumsan ante, a blandit purus aliquet eget. Aliquam faucibus tempus nibh, vitae porttitor lectus pulvinar vitae. Pellentesque in lacus sed libero porta vestibulum ac et quam. Suspendisse gravida efficitur sem non mattis. Nulla bibendum rutrum dui, non varius ipsum pharetra eu. Morbi porttitor tincidunt mauris non blandit. Integer blandit commodo aliquet. Duis vel mollis ipsum, vitae dictum ex. Mauris ultricies sem in accumsan ornare. Proin diam augue, molestie a quam nec, tincidunt porta dolor. Integer congue, purus vel suscipit tincidunt, magna mi consectetur nibh, vitae molestie tellus sapien a nisi. Integer malesuada purus hendrerit pellentesque elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed finibus fringilla velit. Nulla egestas, elit pharetra consectetur molestie, nibh ex tempor metus, quis tempus quam est non lacus. Donec at feugiat magna.</p>
+    <p>Duis mollis tellus non eros pellentesque malesuada. Donec fermentum, nibh ac gravida mattis, sapien lacus facilisis lectus, ac mollis elit ipsum et felis. Suspendisse vitae libero quis est lacinia tincidunt. Praesent sapien mi, congue a tempor ac, consectetur quis dolor. Suspendisse in fringilla lectus. Etiam condimentum blandit ligula, eget volutpat nulla scelerisque in. In placerat nulla velit, hendrerit tempor quam luctus ut. Vivamus sagittis nunc mi, non mollis augue luctus ac. Donec eu tristique nisi, ut interdum orci. Suspendisse iaculis pretium consectetur. Nunc leo magna, viverra at tempus sit amet, maximus eget arcu. Ut ultrices consequat ex vitae efficitur. Fusce scelerisque, sem quis ornare imperdiet, mauris quam rutrum magna, suscipit auctor augue enim a quam. Duis eu tempor ligula.</p>
+    <p>Cras tortor enim, varius convallis mi ac, viverra ultrices sapien. Suspendisse potenti. Pellentesque eget nibh feugiat ligula dignissim auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eleifend sapien tempor efficitur fringilla. Sed sed nulla nunc. Nunc luctus urna ac eros malesuada ultrices. Vivamus ullamcorper mi nec nisl euismod, quis faucibus sem volutpat. Donec egestas consequat volutpat.</p>
+    <p>Suspendisse neque metus, posuere a commodo sed, laoreet in ex. Integer facilisis leo vestibulum ultrices imperdiet. Duis orci odio, fringilla sed nisl non, consequat condimentum risus. Sed pellentesque blandit augue at laoreet. Mauris eleifend sem in tincidunt tristique. Ut in orci vitae nisl molestie rutrum. Ut lacinia commodo congue. Quisque rutrum semper facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat ipsum, eleifend non porttitor nec, posuere at lorem. Cras semper, ante ut consequat imperdiet, mauris nibh porta ante, a ullamcorper velit libero vitae lorem. Cras nec lobortis lacus. Praesent condimentum efficitur pharetra. Nulla vitae tortor pulvinar mauris hendrerit faucibus at sit amet felis.</p>
+    <p>Proin dapibus lacinia turpis eget commodo. Pellentesque ut bibendum velit. Fusce ut ligula orci. Ut consectetur viverra rutrum. Quisque aliquet neque at velit commodo viverra. Aliquam interdum, risus vitae interdum ultrices, sem lacus aliquam mauris, sit amet euismod mi purus id odio. In luctus ex at purus imperdiet auctor. Morbi sed orci sit amet orci pharetra suscipit. Integer aliquam risus velit, ut tempus ex luctus id. Morbi dolor odio, maximus quis egestas sit amet, dignissim ut nulla. Vestibulum sagittis mollis eros posuere congue. Sed vestibulum lorem ac metus pulvinar, accumsan suscipit nibh pulvinar.</p>
+
+</div>
+{% endblock %}

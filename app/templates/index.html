@@ -12,16 +12,19 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Glossa Machine Translations</h1>
+    <h1>Logos Machine Translator</h1>
     <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
-    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
-    {% if not known %}
-    <p>Pleased to meet you!</p>
-    {% else %}
-    <p>Happy to see you again!</p>
-    {% endif %}
-
 </div>
 {{ wtf.quick_form(form) }}
+<hr/>
+{% if form_input %}
+<p>You entered: {{ form_input }}</p>
+<p>Translation: {{ form_output }}</p>
+{% endif %}
+{% if not known %}
+<p>Input string was never translated by Logos before</p>
+{% else %}
+<p>(*) Showing cached translation</p>
+{% endif %}
 {% endblock %}
