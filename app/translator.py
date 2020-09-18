@@ -1,3 +1,7 @@
+__version__ = '0.0.1'
+__author__ = 'David Haase'
+__copyright__ = 'Copyright (c) David Haase'
+
 class Translator():
     language = 'French'
 

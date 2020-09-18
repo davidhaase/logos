@@ -1,18 +1,18 @@
-#########
-# The APP PACKAGE CONSTRUCTOR
-# Delay the creation of the application by moving it into a factory function
-# that can be explicitly invoked from the script. This not only gives the script
-# time to set the configuration, but also the ability to create multiple
-# application instances—another thing that can be very useful during testing
+"""
+The APP PACKAGE CONSTRUCTOR
+Delay the creation of the application by moving it into a factory function
+that can be explicitly invoked from the script. This not only gives the script
+time to set the configuration, but also the ability to create multiple
+application instances—another thing that can be very useful during testing
 
-# This constructor imports most of the Flask extensions currently in use, but
-# because there is no application instance to initialize them with, it creates
-# them uninitialized by passing no arguments into their constructors. The
-# create_app() function is the application factory, which takes as an argument
-# the name of a configuration to use for the application. The configuration
-# settings stored in one of the classes defined in config.py can be imported
-# directly into the application using the from_object() method available in
-# Flask’s app.config configuration object. -- Miguel Grinberg: Flask Web Development
+This constructor imports most of the Flask extensions currently in use, but
+because there is no application instance to initialize them with, it creates
+them uninitialized by passing no arguments into their constructors. The
+create_app() function is the application factory, which takes as an argument
+the name of a configuration to use for the application. The configuration
+settings stored in one of the classes defined in config.py can be imported
+directly into the application using the from_object() method available in
+Flask’s app.config configuration object. -- Miguel Grinberg: Flask Web Development"""
 
 from flask import Flask
 from flask_bootstrap import Bootstrap
