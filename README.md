@@ -2,35 +2,12 @@
 Python Flask server with a front end that allows users to enter text and get translations.
 ## Logos Web Server Set-Up
 ### Runbook: How to run this on your own localhost
-#### Set up the virtual environment
-1. Clone this repository to your local drive. The top folder should be *__logos__*.
-2. Create the virtual environment from the top level...
-3. Activate the virtual environment
-4. Upgrade the pip installer...
-5. And finally, pip install the *requirements.txt*...
+1. Clone or download this repository to your local drive. The top folder should be *__logos__*, or *__logos-master__* if you downloaded the zip.
+2. From the top folder, use Terminal to run the setup script to set up virtual environment and load packages
 
-                $ python3 -m venv ./venv
-                $ source venv/bin/activate
-                (venv) logos $ pip install --upgrade pip
-                (venv) logos $ pip install -r requirements.txt
+                $ ./setup.sh
 
-6. Confirm databases are running, by assigning the environment variable
-7. Then, launch the flask shell
-8. Type any of the objects; e.g., app, db, Input
-9. If you see the response below, you're ready to go so deactivate.
-
-                (venv) logos $ export FLASK_APP=logos.py
-                (venv) logos $ flask shell
-                >>> app
-                <Flask 'app'>
-                >>> db
-                <<SQLAlchemy engine=sqlite:////Users/.../logos/data-dev.sqlite>'>
-                >>> Input
-                <<class 'app.models.Input'>>
-                >>> exit()
-                (venv) logos $ deactivate
-
-10. Spin up the Flask server by running the run.sh
+3. Spin up the Flask server by running the run.sh
 
                 $ ./run.sh
 
