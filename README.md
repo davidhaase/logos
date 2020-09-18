@@ -15,20 +15,20 @@ Web interface in Python Flask that allows users to enter text and get translatio
 4. Pip install the *requirements.txt*...
 5. Activate the environment...
 6. And finally, set the minimal environment variables:
-> $ python3 -m venv ./venv
-> $ pip install --upgrade pip
-        $ pip install -r requirements.txt
-        $ source venv/bin/activate
-        (venv) $ FLASK_APP=logos.py
-        (venv) $ FLASK_DEBUG=1
+                $ python3 -m venv ./venv
+                $ pip install --upgrade pip
+                $ pip install -r requirements.txt
+                $ source venv/bin/activate
+                (venv) $ FLASK_APP=logos.py
+                (venv) $ FLASK_DEBUG=1
 ##### Databases
 Confirm the database is set up by launching the Flask shell, and typing any of the database objects:
-        (venv) $ Flask shell
-        >>> app
-        <Flask 'app'>
-        >>> db
-        <<SQLAlchemy engine=sqlite:////Users/.../logos/data-dev.sqlite>'>
-        >>> Input
-        <<class 'app.models.Input'>>
+                (venv) $ Flask shell
+                >>> app
+                <Flask 'app'>
+                >>> db
+                <<SQLAlchemy engine=sqlite:////Users/.../logos/data-dev.sqlite>'>
+                >>> Input
+                <<class 'app.models.Input'>>
 
 
