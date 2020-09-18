@@ -33,7 +33,7 @@ Confirm the database is set up by launching the Flask shell, and typing any of t
                 >>> Input
                 <<class 'app.models.Input'>>
 
-#### Spin up the Flask server
+##### Spin up the Flask server
 1. Simply run the run.sh
 
                 (venv) $ run.sh
@@ -51,3 +51,4 @@ Confirm the database is set up by launching the Flask shell, and typing any of t
                  * Debugger PIN: 103-549-827
 
 3. Launch a browser to the assigned URL 
+##### Now enjoy
