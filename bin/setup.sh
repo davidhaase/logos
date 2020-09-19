@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
 # The setup.sh installs the Python virtual requirement if it doesn't exist already
 
 #Check if the virtual environement already exists

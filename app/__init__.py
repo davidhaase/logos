@@ -20,7 +20,7 @@ from flask_mail import Mail
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
-from .config.config import config
+from config import config
 
 bootstrap = Bootstrap()
 mail = Mail()
