@@ -27,7 +27,13 @@ Python Flask server with a front end that allows users to enter text and get tra
 
 ## Version History
 ### Release v1.0
-#### Release Notes: What's in this release
+#### Release v1.0.2 Notes: What's in this release
+##### New
+- Moved config.py into its own config folder
+- Added Docker container functionality (Dockerfile & docker scripts); if you are not using any docker containers, these can be ignored
+##### Known Issues
+- __DB Crash in Docker Container__.  If you run the website from the Docker container, the browser will crash with a DB error when a novel translation term is entered. A DB read-only error is returned in the browser.  
+#### Release v1.0.0 Notes: What's in this release
 - This version is simply a proof of concept for building a localhost website in python Flask.  Once downloaded and set up, it will run on localhost:5000.
 - The homepage will allow you to enter text and click Submit
 - The machine-translation models are not hooked up in this version, but a simple placeholder transformation of the entered text is echoed back to the page.
