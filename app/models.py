@@ -1,15 +1,43 @@
 from . import db
 
 
-class Input(db.Model):
-    __tablename__ = 'inputs'
+class Job(db.Model):
+    __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
-    input = db.Column(db.String(64), unique=True, index=True)
-    output = db.Column(db.String(64), unique=True, index=True)
+    input = db.Column(db.String(64))
+    output = db.Column(db.String(64))
 
     def __repr__(self):
-        return '<Input %r>' % self.input
+        return '<Job %r>' % self.input
 
+
+class Language (db.Model):
+    __tablename__ = 'languages'
+    id = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(64), unique=True, index=True)
+    name = db.Column(db.String(64))
+    en_name = db.Column(db.String(64))
+    input_languages = db.relationship('InputLanguage', backref='role', lazy='dynamic')
+    output_languages = db.relationship('OutputLanguage', backref='role', lazy='dynamic')
+
+    def __repr__(self):
+        return '<Language %r>' % self.en_name
+
+class InputLanguage(db.Model):
+    __tablename__ = 'input_languages'
+    id = db.Column(db.Integer, primary_key=True)
+    language_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
+
+    def __repr__(self):
+        return '<InputLanguages>'
+
+class OutputLanguage(db.Model):
+    __tablename__ = 'output_languages'
+    id = db.Column(db.Integer, primary_key=True)
+    language_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
+
+    def __repr__(self):
+        return '<OutputLanguages>'
 
 
 # class Role(db.Model):
