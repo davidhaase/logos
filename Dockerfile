@@ -4,6 +4,7 @@ FROM python:3.7-alpine3.12 AS py_venv_builder
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV FLASK_APP logos.py
 WORKDIR /logos
 COPY requirements.txt .
 
@@ -24,7 +25,8 @@ FROM python:3.7-alpine3.12
 ARG BUILD_DATE
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-ENTRYPOINT ["bin/run.sh"]
+EXPOSE 5000
+ENTRYPOINT ["bin/docker-run.sh"]
 CMD []
 
 # Define Labels (documentation purposes only)LABEL "org.label-schema.name"="davidhaase/logos"
@@ -42,6 +44,10 @@ USER appuser
 WORKDIR /logos
 
 COPY --from=py_venv_builder /logos/venv ./venv/
-COPY bin/run.sh bin/
+COPY bin/docker-run.sh bin/
+COPY app app
 COPY config config/
 COPY logos.py .
+COPY config.py .
+COPY data-dev.sqlite .
+COPY migrations migrations/

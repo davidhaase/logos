@@ -1,15 +1,15 @@
 #!/bin/sh
 
 #Check if the virtual environement already exists
-FILE=../venv # use this if using Terminal
+FILE=/logos/venv 
 if [ -d "$FILE" ]
 
 # venv directory exists already, so do nothing
 then
-  export FLASK_APP=../logos.py # use this if using Terminal
+  export FLASK_APP=/logos/logos.py 
   export FLASK_DEBUG=1
   source $FILE/bin/activate 
-  flask run
+  flask run --host=0.0.0.0
   deactivate
 
 else
