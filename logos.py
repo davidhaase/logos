@@ -2,7 +2,7 @@ import os
 import click
 from flask_migrate import Migrate
 from app import create_app, db
-from app.models import Translation, Language
+from app.models import Translation, Language, TranslationModel
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
@@ -13,7 +13,8 @@ migrate = Migrate(app, db)
 def make_shell_context():
     return dict(db=db, 
                 Translation=Translation, 
-                Language=Language)
+                Language=Language,
+                TranslationModel=TranslationModel)
 
 
 @app.cli.command()

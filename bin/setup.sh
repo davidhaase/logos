@@ -11,7 +11,7 @@ then
   echo "'$FILE' directory already exists, cancelling set-up"
 
 else
-  echo "'$FILE' not found, creating VENV directory and virtual environment"
+  echo "Starting set-up, creating VENV directory and virtual environment"
 
   # Create a virtual environment
   python3 -m venv $FILE

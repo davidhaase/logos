@@ -12,7 +12,7 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Logos Machine Translator</h1>
+    <h1>Welcome to the <i>Logos</i> Machine Translator</h1>
     <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
 </div>
@@ -20,8 +20,12 @@
 {{ wtf.quick_form(form) }}
 <hr/>
 {% if form_input %}
-<p>You entered: {{ form_input }}</p>
-<p>Translation: {{ form_output }}</p>
+<h2>Logos Machine Translations<h2>
+<h3>{{ input_selection }} —> {{ ouput_selection }}</h3>
+<h4>You entered:</h4>
+<p>{{ form_input }}</p>
+<h4>Logos translated it into:</h4>
+<p>{{ form_output }}</p>
 {% endif %}
 {% if not known %}
 <p>Input string was never translated by Logos before</p>
