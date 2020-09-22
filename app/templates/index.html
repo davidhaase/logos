@@ -16,6 +16,7 @@
     <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
 </div>
+
 {{ wtf.quick_form(form) }}
 <hr/>
 {% if form_input %}

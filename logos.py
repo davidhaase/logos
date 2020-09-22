@@ -2,7 +2,7 @@ import os
 import click
 from flask_migrate import Migrate
 from app import create_app, db
-from app.models import Job, Language, InputLanguage, OutputLanguage
+from app.models import Translation, Language
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
@@ -11,7 +11,9 @@ migrate = Migrate(app, db)
    command-line using the "flask shell" command"""
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, Job=Job, Language=Language, InputLanguage=InputLanguage, OutputLanguage=OutputLanguage)
+    return dict(db=db, 
+                Translation=Translation, 
+                Language=Language)
 
 
 @app.cli.command()
