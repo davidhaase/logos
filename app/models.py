@@ -29,7 +29,7 @@ class Translation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     source_txt = db.Column(db.String(64), index=True)
     target_txt = db.Column(db.String(64), index=True)
-    model_id = db.Column(db.Integer, db.ForeignKey('translation_models.id'))
+    model_id = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Translation %r>' % self.input
@@ -39,8 +39,9 @@ class TranslationModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     source_lang_id = db.Column(db.Integer)
-    target_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
-    translations = db.relationship('Translation', backref='model', lazy='dynamic')
+    target_lang_id = db.Column(db.Integer)
+    training_id = db.Column(db.Integer)
+    build_id = db.Column(db.Integer)
 
     def __repr__(self):
         return '<TranslationModel %r>' % self.name

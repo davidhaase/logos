@@ -1,8 +1,0 @@
-french = Language(  code='fr',name='français', en_name='French', is_input_lang=False, is_output_lang=True)
-english = Language(  code='en',name='english', en_name='English', is_input_lang=True, is_output_lang=False)
-spanish = Language(  code='es',name='español', en_name='Spanish', is_input_lang=False, is_output_lang=True)
-italian = Language(  code='it',name='italiano', en_name='Italian', is_input_lang=False, is_output_lang=True)
-german = Language(  code='de',name='deutsch', en_name='German', is_input_lang=False, is_output_lang=True)
-turkish = Language( code='tk', name='türkçe', en_name='Turkish', is_input_lang=False, is_output_lang=True)  
-db.session.add(french)
-db.session.commit() 
