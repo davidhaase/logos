@@ -1,6 +1,12 @@
 from . import db
 
 
+
+### To load look-up tables
+# (venv) $ flask shell
+# >>> from logos import db
+# >>> from app import data_loader as ld
+# >>> ld.load_data(db, Language, TranslationModel)
 # '1 français'
 # '2 english'
 # '3 español'

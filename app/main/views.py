@@ -35,6 +35,10 @@ def index():
         session['output_lang'] = form.form_output_lang_selection.data
         session['form_output'] = tr.translate(input=form.form_input.data, lang=form.form_output_lang_selection.data)
         return redirect(url_for('.index'))
+    
+    form.form_input.data = session['form_input']
+    form.form_input_lang_selection.data = session['input_lang']
+    form.form_output_lang_selection.data = session['output_lang']
     return render_template('index.html',
                            form=form,
                            form_output=session.get('form_output'),
