@@ -30,12 +30,32 @@ class TranslationModel(db.Model):
     source_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     target_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     translations = db.relationship('Translation', foreign_keys=[Translation.model_id], lazy='dynamic')
-    training_id = db.Column(db.Integer)
-    build_id = db.Column(db.Integer)
+    training_id = db.Column(db.Integer, db.ForeignKey('training_sets.id'))
+    build_id = db.Column(db.Integer, db.ForeignKey('build_versions.id'))
 
     def __repr__(self):
         return '<TranslationModel %r>' % self.name
 
+class TrainingSet(db.Model):
+    __tablename__ = 'training_sets'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True)
+    summary = db.Column(db.String(64))
+    number_of_epochs = db.Column(db.Integer, db.ForeignKey('epochs.id'))
+    number_of_sentences = db.Column(db.Integer, db.ForeignKey('subsets.id'))
+    build_id = db.Column(db.Integer, db.ForeignKey('build_versions.id'))
+
+class BuildVersion(db.Model):
+    __tablename__ = 'build_versions'
+    id = db.Column(db.Integer, primary_key=True)
+    version_num = db.Column(db.Integer, unique=True)
+    summary = db.Column(db.String(64))
+
+    def __repr__(self):
+        return '<BuildVersion %r>' % self.number_of_sentences
+
+
+# Look-Up Tables
 class Language(db.Model):
     __tablename__ = 'languages'
     id = db.Column(db.Integer, primary_key=True)
@@ -49,6 +69,23 @@ class Language(db.Model):
 
     def __repr__(self):
         return '<Language %r>' % self.name
+
+class Epoch(db.Model):
+    __tablename__ = 'epochs'
+    id = db.Column(db.Integer, primary_key=True)
+    number_of_epochs = db.Column(db.Integer, unique=True)
+
+    def __repr__(self):
+        return '<Epoch %r>' % self.number_of_epochs
+
+class Subset(db.Model):
+    __tablename__ = 'subsets'
+    id = db.Column(db.Integer, primary_key=True)
+    number_of_sentences = db.Column(db.Integer, unique=True)
+
+    def __repr__(self):
+        return '<Subset %r>' % self.number_of_sentences
+
 
 
 # class Role(db.Model):
