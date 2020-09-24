@@ -21,15 +21,14 @@
 <hr/>
 {% if form_input %}
 <h2>Logos Machine Translations<h2>
-<h3>{{ input_selection }} —> {{ ouput_selection }}</h3>
-<h4>You entered:</h4>
+<h4>{{ input_selection }}</h4>
 <p>{{ form_input }}</p>
-<h4>Logos translated it into:</h4>
+<h4>{{ ouput_selection }}</h4>
 <p>{{ form_output }}</p>
 {% endif %}
-{% if not known %}
+<!-- {% if not known %}
 <p>Input string was never translated by Logos before</p>
 {% else %}
 <p>(*) Showing cached translation</p>
-{% endif %}
+{% endif %} -->
 {% endblock %}

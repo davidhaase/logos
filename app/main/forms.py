@@ -15,7 +15,7 @@ class BuildModelForm(FlaskForm):
     form_selection_build_version = SelectField('Choose a version of the model builder', validators=[DataRequired()])
     form_selection_number_of_epochs = SelectField('Choose the number of epochs to run the training', validators=[DataRequired()])
     form_selection_number_of_sentences = SelectField('Choose the subset of sentences', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Build the model')
 
 class PopulateTablesForm(FlaskForm):
     submit = SubmitField('Load Tables')

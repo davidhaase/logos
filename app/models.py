@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from . import db
 
 ### To load look-up tables
@@ -26,6 +28,7 @@ class Translation(db.Model):
 class TranslationModel(db.Model):
     __tablename__ = 'translation_models'
     id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime())
     name = db.Column(db.String(64), unique=True)
     source_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     target_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
@@ -48,7 +51,7 @@ class TrainingSet(db.Model):
 class BuildVersion(db.Model):
     __tablename__ = 'build_versions'
     id = db.Column(db.Integer, primary_key=True)
-    version_num = db.Column(db.Integer, unique=True)
+    version_num = db.Column(db.String(64), unique=True)
     summary = db.Column(db.String(64))
 
     def __repr__(self):
@@ -82,6 +85,7 @@ class Subset(db.Model):
     __tablename__ = 'subsets'
     id = db.Column(db.Integer, primary_key=True)
     number_of_sentences = db.Column(db.Integer, unique=True)
+    display_string_of_number = db.Column(db.String(64))
 
     def __repr__(self):
         return '<Subset %r>' % self.number_of_sentences

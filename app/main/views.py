@@ -75,24 +75,54 @@ def index():
 @main.route('/themodels', methods=['GET', 'POST'])
 def themodels():
     
+    # TABLE OF MODEL HISTORY
+    table_of_model_history = [[model.id, model.date, model.name] for model in TranslationModel.query.all()]
+
     # FORM POPULATION
-    # Populate the dropdowns from the look-up tables 
+    # Populate the form dropdowns from the look-up tables 
     form = BuildModelForm()
     
     form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
     form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
     form.form_selection_build_version.choices = [f'{build.version_num}' for build in BuildVersion.query.all()]
     form.form_selection_number_of_epochs.choices = [f'{epoch.number_of_epochs}' for epoch in Epoch.query.all()]
-    form.form_selection_number_of_sentences.choices = [f'{subset.number_of_sentences}' for subset in Subset.query.all()]
+    form.form_selection_number_of_sentences.choices = [f'{subset.display_string_of_number}' for subset in Subset.query.all()]
 
+    # FORM EVENT - Build a TranslationModel and add it to the TranslationModel table
     if form.validate_on_submit():
 
-        # Load the data from the form into memory
+        # Load the submitted form data into memory
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
         build_version = form.form_selection_build_version.data
         epochs = form.form_selection_number_of_epochs.data
         subset = form.form_selection_number_of_sentences.data
+        date = datetime.utcnow()
+
+        # Create a unique and descriptive name for the model
+        name = f'{input_lang}_to_{output_lang}_from_{build_version}_with_{epochs}e_on_{subset}sents'
+
+        # Check to see if the model already exists.
+        model_name = TranslationModel.query.filter_by(name=name).first()  
+        if model_name is None:
+            try:
+                model_name = TranslationModel(name=name,
+                                              date=date,
+                                              source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
+                                              target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
+                                              build_id=BuildVersion.query.filter_by(version_num=build_version).first().id)
+                db.session.add(model_name)
+                db.session.commit()
+                flash(f'Model added: {model_name}') 
+                session['known'] = False
+            except Exception as e:
+                flash(f'Error: not able to add {model_name}') 
+
+        else:
+            flash(f'Warning: Not rebuilding as model already exists; using: {model_name}') 
+            # Run the translation on input_text
+            # output_text = tr.translate(input=input_text, lang=output_lang)
+            session['known'] = True
 
         
         session['input_lang'] = input_lang
@@ -101,8 +131,21 @@ def themodels():
         session['epochs'] = epochs
         session['subset'] = subset
         
-        return redirect(url_for('.index'))
-
+        return redirect(url_for('.themodels'))
+    # FORM PERSISTENCE
+    # Make the selected form values persistent after each translation by resetting the form
+    # to the values in the session[] dictionary
+    # But the session keys won't exist if it's the first session of the browser
+    if 'input_lang' in session:
+        form.form_selection_input_lang.data = session['input_lang']
+    if 'output_lang' in session:
+        form.form_selection_output_lang.data= session['output_lang']
+    if 'build_version' in session:
+        form.form_selection_build_version.data= session['build_version']
+    if 'epochs' in session:
+        form.form_selection_number_of_epochs.data= session['epochs']
+    if 'subset' in session:
+        form.form_selection_number_of_sentences.data= session['subset']
     return render_template('themodels.html',
                             form=form,
                             form_selection_input_lang=session.get('input_lang'),
@@ -110,6 +153,7 @@ def themodels():
                             form_selection_build_version=session.get('build_version'),
                             form_selection_number_of_epochs=session.get('epochs'),
                             form_selection_number_of_sentences=session.get('subset'),
+                            table_of_model_history=table_of_model_history,
                             current_time=datetime.utcnow())
 
 
@@ -123,27 +167,44 @@ def about():
 
     if form.validate_on_submit():
         
-        french = Language(  code='fr',name='français', en_name='French', is_source_lang=False, is_target_lang=True)
-        english = Language(  code='en',name='english', en_name='English', is_source_lang=True, is_target_lang=False)
-        spanish = Language(  code='es',name='español', en_name='Spanish', is_source_lang=False, is_target_lang=True)
-        italian = Language(  code='it',name='italiano', en_name='Italian', is_source_lang=False, is_target_lang=True)
-        german = Language(  code='de',name='deutsch', en_name='German', is_source_lang=False, is_target_lang=True)
-        turkish = Language( code='tk', name='türkçe', en_name='Turkish', is_source_lang=False, is_target_lang=True)
+        french = Language(  code='fr',name='français', en_name='French', is_source_lang=True, is_target_lang=True)
+        english = Language(  code='en',name='english', en_name='English', is_source_lang=True, is_target_lang=True)
+        spanish = Language(  code='es',name='español', en_name='Spanish', is_source_lang=True, is_target_lang=True)
+        italian = Language(  code='it',name='italiano', en_name='Italian', is_source_lang=True, is_target_lang=True)
+        german = Language(  code='de',name='deutsch', en_name='German', is_source_lang=True, is_target_lang=True)
+        turkish = Language( code='tk', name='türkçe', en_name='Turkish', is_source_lang=True, is_target_lang=True)
         language_list = [french, english, spanish, italian, turkish, german]
 
-        # en_2_fr = TranslationModel (name='en_2_fr', source_lang_id=2, target_lang_id=1)
-        # en_2_es = TranslationModel (name='en_2_es', source_lang_id=2, target_lang_id=3)
-        # en_2_tk = TranslationModel (name='en_2_tk', source_lang_id=2, target_lang_id=4)
-        # en_2_it = TranslationModel (name='en_2_it', source_lang_id=2, target_lang_id=5)
-        # en_2_de = TranslationModel (name='en_2_de', source_lang_id=2, target_lang_id=6)
-        # model_list = [en_2_fr, en_2_es, en_2_tk, en_2_it, en_2_de]
+        ten = Epoch(number_of_epochs=10)
+        twenty = Epoch(number_of_epochs=20)
+        thirty_five = Epoch(number_of_epochs=35)
+        fifty = Epoch(number_of_epochs=50)
+        seventy_five = Epoch(number_of_epochs=75)
+        one_hundred = Epoch(number_of_epochs=100)
+        one_fifty = Epoch(number_of_epochs=150)
+        epoch_list = [ten, twenty, thirty_five, fifty, seventy_five, one_hundred, one_fifty]
+
+        ten_k = Subset(number_of_sentences=10000, display_string_of_number='10K')
+        twenty_k = Subset(number_of_sentences=20000, display_string_of_number='20K')
+        fifty_k = Subset(number_of_sentences=50000, display_string_of_number='50K')
+        seventy_five_k = Subset(number_of_sentences=75000, display_string_of_number='75K')
+        hundred_k = Subset(number_of_sentences=100000, display_string_of_number='100K')
+        subset_list = [ten_k, twenty_k, fifty_k, seventy_five_k, hundred_k]
+
+        empty_build = BuildVersion(version_num='dev_00', summary='No translation model is implemented; just string changes')
+
         try:
             db.session.add_all(language_list)
+            db.session.add_all(epoch_list)
+            db.session.add_all(subset_list)
+            db.session.add(empty_build)
             db.session.commit() 
             flash('DB Tables Loaded') 
 
         except Exception as e:
             flash('Load Failed: ' + str(e))
+
+        return redirect(url_for('.about'))
 
         
 
