@@ -1,6 +1,6 @@
 # logos
 Python Flask server with a front end that allows users to enter text and get translations.
-## Logos Web Server Set-Up
+## How to set up your _Logos_ web server
 ### Runbook: How to run this on your own localhost
 1. Clone or download this repository to your local drive. The top folder should be *__logos__*, or *__logos-master__* if you downloaded the zip.
 2. Navigate to the logos/bin folder, use Terminal to run the setup script to set up virtual environment and load packages
