@@ -15,12 +15,12 @@ def index():
     form = TranslationForm()
     tr = Translator()
     
-    # FORM POPULATION
-    # Populate the dropdowns from the Language db
-    # languages in Language are tagged as 'input' and/or 'output'
+    # LOAD FORM VARIABLES
+    # Populate the user option for input and output languages from the Language look-up table
     form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
     form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
 
+    # USER CLICKS SUBMIT (FORM EVENT) - Build a new record and add it to the Translation table
     if form.validate_on_submit():
         
         # Load the data from the form into memory
@@ -39,18 +39,20 @@ def index():
             output_text = tr.translate(input=input_text, lang=output_lang)
             session['known'] = True
         
+        # SAVE BROWSER SESSION
+        # (NB: this is NOT the db session)
         session['form_input'] = input_text
         session['input_lang'] = input_lang
         session['output_lang'] = output_lang
 
-        # REPLACE the call to tr.translate() EVENTUALLY with table query of output
+        # REPLACE this call to tr.translate() EVENTUALLY with table query of output
         session['form_output'] = tr.translate(input=input_text, lang=output_lang) #output_text
         
         return redirect(url_for('.index'))
     
-    # FORM PERSISTENCE
+    # LOAD SESSION VARIABLES (for Persistence)
     # Make the selected form values persistent after each translation by resetting the form
-    # to the values in the session[] dictionary
+    # ...to the values in the session[] dictionary
     # But the session keys won't exist if it's the first session of the browser
     if 'form_input' in session:
         form.form_string_input.data= session['form_input']
@@ -75,11 +77,12 @@ def index():
 @main.route('/themodels', methods=['GET', 'POST'])
 def themodels():
     
-    # TABLE OF MODEL HISTORY
+    # LOAD PAGE VARIABLES
+    # Display a table of all the models built so far
     table_of_model_history = [[model.id, model.date, model.name] for model in TranslationModel.query.all()]
 
-    # FORM POPULATION
-    # Populate the form dropdowns from the look-up tables 
+    # LOAD FORM VARIABLES
+    # Populate all the user dropdown options from the db look-up tables 
     form = BuildModelForm()
     
     form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
@@ -88,10 +91,12 @@ def themodels():
     form.form_selection_number_of_epochs.choices = [f'{epoch.number_of_epochs}' for epoch in Epoch.query.all()]
     form.form_selection_number_of_sentences.choices = [f'{subset.display_string_of_number}' for subset in Subset.query.all()]
 
-    # FORM EVENT - Build a TranslationModel and add it to the TranslationModel table
+    # USER CLICKS SUBMIT (FORM EVENT) - Build a new model record and add it to the TranslationModel table
     if form.validate_on_submit():
 
-        # Load the submitted form data into memory
+        # If the model doesn't exist already, use the vars below 
+        # ...to define a new model in the TranslationModel table
+        # ...by loading the submitted form data into memory
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
         build_version = form.form_selection_build_version.data
@@ -124,7 +129,8 @@ def themodels():
             # output_text = tr.translate(input=input_text, lang=output_lang)
             session['known'] = True
 
-        
+        # SAVE BROWSER SESSION
+        # (NB: this is NOT the db session)
         session['input_lang'] = input_lang
         session['output_lang'] = output_lang
         session['build_version'] = build_version
@@ -132,7 +138,8 @@ def themodels():
         session['subset'] = subset
         
         return redirect(url_for('.themodels'))
-    # FORM PERSISTENCE
+    
+    # LOAD SESSION VARIABLES (for Persistence)
     # Make the selected form values persistent after each translation by resetting the form
     # to the values in the session[] dictionary
     # But the session keys won't exist if it's the first session of the browser
@@ -146,6 +153,7 @@ def themodels():
         form.form_selection_number_of_epochs.data= session['epochs']
     if 'subset' in session:
         form.form_selection_number_of_sentences.data= session['subset']
+
     return render_template('themodels.html',
                             form=form,
                             form_selection_input_lang=session.get('input_lang'),
