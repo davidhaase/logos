@@ -29,12 +29,18 @@
           <th>ID</th>
           <th>Name</th>
           <th>Date Created</th>
+          <th>Source Language</th>
+          <th>Target Language</th>
+          <th>Build</th>
         </tr>
         {% for model in table_of_model_history %}
         <tr>
           <td>{{ model[0] }}</td>
           <td>{{ model[2] }}</td>
           <td>{{ moment(model[1]).format('LLLL')  }}</td>
+          <td>{{ model[3] }}</td>
+          <td>{{ model[4] }}</td>
+          <td>{{ model[5] }}</td>
         </tr>
         {% endfor %}
     </table>

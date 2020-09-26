@@ -30,7 +30,7 @@ class TranslationModel(db.Model):
     __tablename__ = 'translation_models'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime())
-    name = db.Column(db.String(64), unique=True)
+    name = db.Column(db.String(64))
     source_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     target_lang_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     translations = db.relationship('Translation', foreign_keys=[Translation.model_id], lazy='dynamic')

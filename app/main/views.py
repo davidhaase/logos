@@ -16,7 +16,16 @@ def index():
     form = TranslationForm()
     tr = Translator()
 
+    # LOAD FORM VARIABLES
+    # Populate the user option for input and output languages from the Language look-up table
+
+    form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
+    form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
+
     # LOAD PAGE VARIABLES
+    # Display the models available to the source language
+    list_of_available_models = [model.name for model in TranslationModel.query.all()]
+    print(list_of_available_models)
     # Display a table of all the models built so far
     table_of_translation_history = [[translation.id, translation.date, translation.source_txt, translation.target_txt] \
                                     for translation in Translation.query.all()]
@@ -94,7 +103,12 @@ def themodels():
     
     # LOAD PAGE VARIABLES
     # Display a table of all the models built so far
-    table_of_model_history = [[model.id, model.date, model.name] for model in TranslationModel.query.all()]
+    table_of_model_history = [[model.id, 
+                               model.date, 
+                               model.name, 
+                               Language.query.filter_by(id=model.source_lang_id).first().en_name, 
+                               Language.query.filter_by(id=model.target_lang_id).first().en_name,
+                               BuildVersion.query.filter_by(id=model.build_id).first().version_num] for model in TranslationModel.query.all()]
 
     # LOAD FORM VARIABLES
     # Populate all the user dropdown options from the db look-up tables 
@@ -120,26 +134,30 @@ def themodels():
         date = datetime.utcnow()
 
         # Create a unique and descriptive name for the model
-        name = f'{input_lang}_to_{output_lang}_from_{build_version}_with_{epochs}e_on_{subset}sents'
+        # name = f'{input_lang}_to_{output_lang}_from_{build_version}_with_{epochs}e_on_{subset}sents'
+        name = 'Empty_Model'
 
         # Check to see if the model already exists.
-        model_name = TranslationModel.query.filter_by(name=name).first()  
-        if model_name is None:
+        model = TranslationModel.query.filter_by(name=name,
+                                                      source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
+                                                      target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
+                                                      build_id=BuildVersion.query.filter_by(version_num=build_version).first().id).first()  
+        if model is None:
             try:
-                model_name = TranslationModel(name=name,
+                model = TranslationModel(name=name,
                                               date=date,
                                               source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
                                               target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
                                               build_id=BuildVersion.query.filter_by(version_num=build_version).first().id)
-                db.session.add(model_name)
+                db.session.add(model)
                 db.session.commit()
-                flash(f'Model added: {model_name}') 
+                flash(f'Model added: {model.name}') 
                 session['known'] = False
             except Exception as e:
-                flash(f'Error: not able to add {model_name}') 
+                flash(f'Error: not able to add {model.name} {e}') 
 
         else:
-            flash(f'Warning: Not rebuilding as model already exists; using: {model_name}') 
+            flash(f'Warning: Not rebuilding as model already exists; using: {model.name}') 
             # Run the translation on input_text
             # output_text = tr.translate(input=input_text, lang=output_lang)
             session['known'] = True
