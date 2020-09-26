@@ -15,6 +15,12 @@ def index():
     
     form = TranslationForm()
     tr = Translator()
+
+    # LOAD PAGE VARIABLES
+    # Display a table of all the models built so far
+    table_of_translation_history = [[translation.id, translation.date, translation.source_txt, translation.target_txt] \
+                                    for translation in Translation.query.all()]
+
     
     # LOAD FORM VARIABLES
     # Populate the user option for input and output languages from the Language look-up table
@@ -29,10 +35,12 @@ def index():
         input_text = form.form_string_input.data
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
+        output_text = ''
         
         input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
         if input_text_already_translated is None:
-            input = Translation(source_txt=input_text)
+            output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+            input = Translation(source_txt=input_text, target_txt=output_text, date=datetime.utcnow())
             db.session.add(input)
             db.session.commit()
             session['known'] = False
@@ -42,7 +50,7 @@ def index():
             # path_to_pickle = path_to_model + '/model_prefs.pkl'
             # model_prefs = pickle.load(open(path_to_pickle, 'rb'))
             # TRANSLATOR_MODEL_LOCATION = os.environ.get('TRANSLATOR_MODEL_LOCATION')
-            output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+            
             session['known'] = True
         
         # SAVE BROWSER SESSION
@@ -52,7 +60,7 @@ def index():
         session['output_lang'] = output_lang
 
         # REPLACE this call to tr.translate() EVENTUALLY with table query of output
-        session['form_output'] = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+        session['form_output'] = output_text #tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
         
         return redirect(url_for('.index'))
     
@@ -76,6 +84,7 @@ def index():
                            ouput_selection=session.get('output_lang'),
                            input_selection=session.get('input_lang'),             
                            known=session.get('known', False),
+                           table_of_translation_history=table_of_translation_history,
                            current_time=datetime.utcnow())
 
 
@@ -222,4 +231,13 @@ def about():
 
         
 
-    return render_template('about.html', form=form)    
+    return render_template('about.html', form=form)   
+
+
+@main.route('/identify', methods=['GET', 'POST'])
+def identify(): 
+    return render_template('identify.html')  
+
+@main.route('/diagnose', methods=['GET', 'POST'])
+def diagnose(): 
+    return render_template('diagnose.html')  

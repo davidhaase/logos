@@ -26,9 +26,26 @@
 <h4>{{ ouput_selection }}</h4>
 <p>{{ form_output }}</p>
 {% endif %}
-<!-- {% if not known %}
-<p>Input string was never translated by Logos before</p>
-{% else %}
-<p>(*) Showing cached translation</p>
-{% endif %} -->
+
+<hr/>
+<div class="page=header">
+    <h2>Past Translations</h2>
+    <table style="width:100%">
+        <caption>Translation History</caption>
+        <tr>
+          <th>ID</th>
+          <th>Source</th>
+          <th>Target</th>
+          <th>Date</th>
+        </tr>
+        {% for translation in table_of_translation_history %}
+        <tr>
+          <td>{{ translation[0] }}</td>
+          <td>{{ translation[2] }}</td>
+          <td>{{ translation[3] }}</td>
+          <td>{{ translation[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

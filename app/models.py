@@ -18,6 +18,7 @@ from . import db
 class Translation(db.Model):
     __tablename__ = 'translations'
     id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime())
     source_txt = db.Column(db.String(64), index=True)
     target_txt = db.Column(db.String(64), index=True)
     model_id = db.Column(db.Integer, db.ForeignKey('translation_models.id'))
