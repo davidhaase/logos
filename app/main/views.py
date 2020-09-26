@@ -1,9 +1,10 @@
+import os
 from datetime import datetime
+import pickle
 
 from flask import render_template, session, redirect, url_for, current_app, flash
 from .. import db
 from ..models import Translation, Language, TranslationModel, BuildVersion, Epoch, Subset
-from ..email import send_email
 from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
@@ -37,7 +38,11 @@ def index():
             session['known'] = False
         else:
             # Run the translation on input_text
-            output_text = tr.translate(input=input_text, lang=output_lang)
+            # path_to_model = '/Users/davidhaase/Documents/Learn/Flatiron/Projects/machine-translator/models/de_to_en/basic_75K_35E_fixed/pickles'
+            # path_to_pickle = path_to_model + '/model_prefs.pkl'
+            # model_prefs = pickle.load(open(path_to_pickle, 'rb'))
+            # TRANSLATOR_MODEL_LOCATION = os.environ.get('TRANSLATOR_MODEL_LOCATION')
+            output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
             session['known'] = True
         
         # SAVE BROWSER SESSION
@@ -47,7 +52,7 @@ def index():
         session['output_lang'] = output_lang
 
         # REPLACE this call to tr.translate() EVENTUALLY with table query of output
-        session['form_output'] = tr.translate(input=input_text, lang=output_lang) #output_text
+        session['form_output'] = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
         
         return redirect(url_for('.index'))
     

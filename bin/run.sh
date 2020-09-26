@@ -8,6 +8,7 @@ if [ -d "$FILE" ]
 then
   export FLASK_APP=../logos.py # use this if using Terminal
   export FLASK_DEBUG=1
+  export TRANSLATOR_MODEL_LOCATION=AWS
   source $FILE/bin/activate 
   flask run
   deactivate
