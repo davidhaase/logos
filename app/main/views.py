@@ -17,6 +17,7 @@ def index():
     
     # LOAD FORM VARIABLES
     # Populate the user option for input and output languages from the Language look-up table
+
     form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
     form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
 
@@ -141,7 +142,7 @@ def themodels():
     
     # LOAD SESSION VARIABLES (for Persistence)
     # Make the selected form values persistent after each translation by resetting the form
-    # to the values in the session[] dictionary
+    # ...to the values in the session[] dictionary
     # But the session keys won't exist if it's the first session of the browser
     if 'input_lang' in session:
         form.form_selection_input_lang.data = session['input_lang']
