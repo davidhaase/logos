@@ -32,6 +32,8 @@
           <th>Source Language</th>
           <th>Target Language</th>
           <th>Build</th>
+          <th>Epochs</th>
+          <th>Number of Sentences</th>
         </tr>
         {% for model in table_of_model_history %}
         <tr>
@@ -41,6 +43,8 @@
           <td>{{ model[3] }}</td>
           <td>{{ model[4] }}</td>
           <td>{{ model[5] }}</td>
+          <td>{{ model[6] }}</td>
+          <td>{{ model[7] }}</td>
         </tr>
         {% endfor %}
     </table>

@@ -4,7 +4,7 @@ import pickle
 
 from flask import render_template, session, redirect, url_for, current_app, flash
 from .. import db
-from ..models import Translation, Language, TranslationModel, BuildVersion, Epoch, Subset
+from ..models import Translation, Language, TranslationModel, Build, Epoch, Subset
 from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
@@ -16,26 +16,21 @@ def index():
     form = TranslationForm()
     tr = Translator()
 
-    # LOAD FORM VARIABLES
-    # Populate the user option for input and output languages from the Language look-up table
-
-    form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
-    form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
-
     # LOAD PAGE VARIABLES
-    # Display the models available to the source language
-    list_of_available_models = [model.name for model in TranslationModel.query.all()]
-    print(list_of_available_models)
-    # Display a table of all the models built so far
+    # Display a table of all the translations made so far
     table_of_translation_history = [[translation.id, translation.date, translation.source_txt, translation.target_txt] \
-                                    for translation in Translation.query.all()]
+        for translation in Translation.query.all()]
 
     
     # LOAD FORM VARIABLES
-    # Populate the user option for input and output languages from the Language look-up table
-
-    form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
-    form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
+    # Query the TranstionModel table to determine which languages are available as source and target
+    # Populate the user options based on these availabilities
+    # input/source
+    form.form_selection_input_lang.choices = [f'{Language.query.filter_by(id=model.source_lang_id).first().en_name}' \
+        for model in db.session.query(TranslationModel.source_lang_id).distinct()]
+    # output/target
+    form.form_selection_output_lang.choices = [f'{Language.query.filter_by(id=model.target_lang_id).first().en_name}' \
+        for model in db.session.query(TranslationModel.target_lang_id).distinct()]
 
     # USER CLICKS SUBMIT (FORM EVENT) - Build a new record and add it to the Translation table
     if form.validate_on_submit():
@@ -46,21 +41,21 @@ def index():
         output_lang = form.form_selection_output_lang.data
         output_text = ''
         
-        input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
-        if input_text_already_translated is None:
-            output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
-            input = Translation(source_txt=input_text, target_txt=output_text, date=datetime.utcnow())
-            db.session.add(input)
-            db.session.commit()
-            session['known'] = False
-        else:
+        # input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
+        # if input_text_already_translated is None:
+        output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+        input = Translation(source_txt=input_text, target_txt=output_text, date=datetime.utcnow())
+        db.session.add(input)
+        db.session.commit()
+        # session['known'] = False
+        # else:
             # Run the translation on input_text
             # path_to_model = '/Users/davidhaase/Documents/Learn/Flatiron/Projects/machine-translator/models/de_to_en/basic_75K_35E_fixed/pickles'
             # path_to_pickle = path_to_model + '/model_prefs.pkl'
             # model_prefs = pickle.load(open(path_to_pickle, 'rb'))
             # TRANSLATOR_MODEL_LOCATION = os.environ.get('TRANSLATOR_MODEL_LOCATION')
             
-            session['known'] = True
+            # session['known'] = True
         
         # SAVE BROWSER SESSION
         # (NB: this is NOT the db session)
@@ -92,7 +87,7 @@ def index():
                            form_input=session.get('form_input'), 
                            ouput_selection=session.get('output_lang'),
                            input_selection=session.get('input_lang'),             
-                           known=session.get('known', False),
+                        #    known=session.get('known', False),
                            table_of_translation_history=table_of_translation_history,
                            current_time=datetime.utcnow())
 
@@ -108,15 +103,18 @@ def themodels():
                                model.name, 
                                Language.query.filter_by(id=model.source_lang_id).first().en_name, 
                                Language.query.filter_by(id=model.target_lang_id).first().en_name,
-                               BuildVersion.query.filter_by(id=model.build_id).first().version_num] for model in TranslationModel.query.all()]
+                               Build.query.filter_by(id=model.build_id).first().name,
+                               model.number_of_epochs,
+                               model.number_of_sentences] \
+                                   for model in TranslationModel.query.all()]
 
     # LOAD FORM VARIABLES
     # Populate all the user dropdown options from the db look-up tables 
     form = BuildModelForm()
     
-    form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_source_lang=True).all()]
-    form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.filter_by(is_target_lang=True).all()]
-    form.form_selection_build_version.choices = [f'{build.version_num}' for build in BuildVersion.query.all()]
+    form.form_selection_input_lang.choices = [f'{lang.en_name}' for lang in Language.query.all()]
+    form.form_selection_output_lang.choices = [f'{lang.en_name}' for lang in Language.query.all()]
+    form.form_selection_build_name.choices = [f'{build.name}' for build in Build.query.all()]
     form.form_selection_number_of_epochs.choices = [f'{epoch.number_of_epochs}' for epoch in Epoch.query.all()]
     form.form_selection_number_of_sentences.choices = [f'{subset.display_string_of_number}' for subset in Subset.query.all()]
 
@@ -128,27 +126,31 @@ def themodels():
         # ...by loading the submitted form data into memory
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
-        build_version = form.form_selection_build_version.data
+        build_name = form.form_selection_build_name.data
         epochs = form.form_selection_number_of_epochs.data
         subset = form.form_selection_number_of_sentences.data
         date = datetime.utcnow()
 
+        
         # Create a unique and descriptive name for the model
-        # name = f'{input_lang}_to_{output_lang}_from_{build_version}_with_{epochs}e_on_{subset}sents'
-        name = 'Empty_Model'
+        name = f'{build_name}_{epochs}e_{subset}s'
 
-        # Check to see if the model already exists.
+        # Query by name, source_lang and target_lang to see if the model exists
+        # Don't rebuild if it already exists for the desired languages
         model = TranslationModel.query.filter_by(name=name,
-                                                      source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
-                                                      target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
-                                                      build_id=BuildVersion.query.filter_by(version_num=build_version).first().id).first()  
+                                                    source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
+                                                    target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,).first()  
+        
+        # The model doesn't yet exist for these languages, so build it
         if model is None:
             try:
                 model = TranslationModel(name=name,
-                                              date=date,
-                                              source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
-                                              target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
-                                              build_id=BuildVersion.query.filter_by(version_num=build_version).first().id)
+                                            date=date,
+                                            source_lang_id=Language.query.filter_by(en_name=input_lang).first().id,
+                                            target_lang_id=Language.query.filter_by(en_name=output_lang).first().id,
+                                            build_id=Build.query.filter_by(name=build_name).first().id,
+                                            number_of_epochs=epochs,
+                                            number_of_sentences=subset)
                 db.session.add(model)
                 db.session.commit()
                 flash(f'Model added: {model.name}') 
@@ -166,7 +168,7 @@ def themodels():
         # (NB: this is NOT the db session)
         session['input_lang'] = input_lang
         session['output_lang'] = output_lang
-        session['build_version'] = build_version
+        session['build_name'] = build_name
         session['epochs'] = epochs
         session['subset'] = subset
         
@@ -180,8 +182,8 @@ def themodels():
         form.form_selection_input_lang.data = session['input_lang']
     if 'output_lang' in session:
         form.form_selection_output_lang.data= session['output_lang']
-    if 'build_version' in session:
-        form.form_selection_build_version.data= session['build_version']
+    if 'build_name' in session:
+        form.form_selection_build_name.data= session['build_name']
     if 'epochs' in session:
         form.form_selection_number_of_epochs.data= session['epochs']
     if 'subset' in session:
@@ -191,7 +193,7 @@ def themodels():
                             form=form,
                             form_selection_input_lang=session.get('input_lang'),
                             form_selection_output_lang=session.get('output_lang'),
-                            form_selection_build_version=session.get('build_version'),
+                            form_selection_build_name=session.get('build_name'),
                             form_selection_number_of_epochs=session.get('epochs'),
                             form_selection_number_of_sentences=session.get('subset'),
                             table_of_model_history=table_of_model_history,
@@ -208,12 +210,12 @@ def about():
 
     if form.validate_on_submit():
         
-        french = Language(  code='fr',name='français', en_name='French', is_source_lang=True, is_target_lang=True)
-        english = Language(  code='en',name='english', en_name='English', is_source_lang=True, is_target_lang=True)
-        spanish = Language(  code='es',name='español', en_name='Spanish', is_source_lang=True, is_target_lang=True)
-        italian = Language(  code='it',name='italiano', en_name='Italian', is_source_lang=True, is_target_lang=True)
-        german = Language(  code='de',name='deutsch', en_name='German', is_source_lang=True, is_target_lang=True)
-        turkish = Language( code='tk', name='türkçe', en_name='Turkish', is_source_lang=True, is_target_lang=True)
+        french = Language(  code='fr',name='français', en_name='French')
+        english = Language(  code='en',name='english', en_name='English')
+        spanish = Language(  code='es',name='español', en_name='Spanish')
+        italian = Language(  code='it',name='italiano', en_name='Italian')
+        german = Language(  code='de',name='deutsch', en_name='German')
+        turkish = Language( code='tk', name='türkçe', en_name='Turkish')
         language_list = [french, english, spanish, italian, turkish, german]
 
         ten = Epoch(number_of_epochs=10)
@@ -232,7 +234,7 @@ def about():
         hundred_k = Subset(number_of_sentences=100000, display_string_of_number='100K')
         subset_list = [ten_k, twenty_k, fifty_k, seventy_five_k, hundred_k]
 
-        empty_build = BuildVersion(version_num='dev_00', summary='No translation model is implemented; just string changes')
+        empty_build = Build(name='dev_00', summary='No translation model is implemented; just string changes')
 
         try:
             db.session.add_all(language_list)

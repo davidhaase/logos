@@ -43,9 +43,11 @@
           <td>{{ translation[0] }}</td>
           <td>{{ translation[2] }}</td>
           <td>{{ translation[3] }}</td>
-          <td>{{ translation[1] }}</td>
+          <td>{{ moment(translation[1]).format('LLLL') }}</td>
         </tr>
         {% endfor %}
     </table>
 </div>
 {% endblock %}
+<p>  </p>
+<hr/>
