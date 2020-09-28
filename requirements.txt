@@ -56,6 +56,7 @@ tensorflow-estimator==2.3.0
 termcolor==1.1.0
 toml==0.10.1
 typed-ast==1.4.1
+unicodedata2==13.0.0.post2
 urllib3==1.25.10
 visitor==0.1.3
 Werkzeug==1.0.1

@@ -53,7 +53,8 @@ def index():
         
         # input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
         # if input_text_already_translated is None:
-        output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+        # output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+        output_text = tr.translate(input_text)
         input = Translation(    model_id=TranslationModel.query.filter_by(name=model_name).first().id,
                                 source_txt=input_text, 
                                 target_txt=output_text, 
@@ -222,7 +223,6 @@ def themodels():
 def about():
 
     form = PopulateTablesForm()
-    ret_val = 'DB Updated'
 
     if form.validate_on_submit():
         
