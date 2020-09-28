@@ -21,7 +21,7 @@ class Translation(db.Model):
     date = db.Column(db.DateTime())
     source_txt = db.Column(db.String(64), index=True)
     target_txt = db.Column(db.String(64), index=True)
-    model_id = db.Column(db.Integer, db.ForeignKey('translation_models.id'))
+    model_id = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Translation %r>' % self.input
@@ -36,7 +36,6 @@ class TranslationModel(db.Model):
     number_of_sentences = db.Column(db.Integer, db.ForeignKey('subsets.id'))
     source_lang_id = db.Column(db.Integer)
     target_lang_id = db.Column(db.Integer)
-    translations = db.relationship('Translation', foreign_keys=[Translation.model_id], lazy='dynamic')
     build_id = db.Column(db.Integer)
 
     def __repr__(self):

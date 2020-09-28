@@ -20,29 +20,30 @@
 {{ wtf.quick_form(form) }}
 <hr/>
 {% if form_input %}
-<h2>Logos Machine Translations<h2>
-<h4>{{ input_selection }}</h4>
+<h2>Logos Machine Translation<h2>
+<!-- <h4>{{ input_selection }}</h4>
 <p>{{ form_input }}</p>
-<h4>{{ ouput_selection }}</h4>
-<p>{{ form_output }}</p>
+<h4>{{ ouput_selection }}</h4> -->
+<h4>({{ ouput_selection }}) {{ form_output }}</h4>
 {% endif %}
 
 <hr/>
 <div class="page=header">
-    <h2>Past Translations</h2>
     <table style="width:100%">
         <caption>Translation History</caption>
         <tr>
           <th>ID</th>
           <th>Source</th>
           <th>Target</th>
-          <th>Date</th>
+          <th>Model</th>
+          <th>Date Translated</th>
         </tr>
         {% for translation in table_of_translation_history %}
         <tr>
           <td>{{ translation[0] }}</td>
           <td>{{ translation[2] }}</td>
           <td>{{ translation[3] }}</td>
+          <td><a href="/themodels" target="_blank">{{ translation[4] }}</a></td>
           <td>{{ moment(translation[1]).format('LLLL') }}</td>
         </tr>
         {% endfor %}

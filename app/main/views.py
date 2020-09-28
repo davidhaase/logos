@@ -18,17 +18,26 @@ def index():
 
     # LOAD PAGE VARIABLES
     # Display a table of all the translations made so far
-    table_of_translation_history = [[translation.id, translation.date, translation.source_txt, translation.target_txt] \
+    table_of_translation_history = [[   translation.id, 
+                                        translation.date, 
+                                        translation.source_txt, 
+                                        translation.target_txt,
+                                        TranslationModel.query.filter_by(id=translation.model_id).first().name] \
         for translation in Translation.query.all()]
 
     
     # LOAD FORM VARIABLES
     # Query the TranstionModel table to determine which languages are available as source and target
     # Populate the user options based on these availabilities
-    # input/source
+    
+    # model selection
+    form.form_selection_model.choices = [f'{model.name}' for model in db.session.query(TranslationModel.name).distinct()]
+    
+    # input/source language selection
     form.form_selection_input_lang.choices = [f'{Language.query.filter_by(id=model.source_lang_id).first().en_name}' \
         for model in db.session.query(TranslationModel.source_lang_id).distinct()]
-    # output/target
+    
+    # output/target language selection
     form.form_selection_output_lang.choices = [f'{Language.query.filter_by(id=model.target_lang_id).first().en_name}' \
         for model in db.session.query(TranslationModel.target_lang_id).distinct()]
 
@@ -36,6 +45,7 @@ def index():
     if form.validate_on_submit():
         
         # Load the data from the form into memory
+        model_name = form.form_selection_model.data
         input_text = form.form_string_input.data
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
@@ -44,7 +54,10 @@ def index():
         # input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
         # if input_text_already_translated is None:
         output_text = tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
-        input = Translation(source_txt=input_text, target_txt=output_text, date=datetime.utcnow())
+        input = Translation(    model_id=TranslationModel.query.filter_by(name=model_name).first().id,
+                                source_txt=input_text, 
+                                target_txt=output_text, 
+                                date=datetime.utcnow())
         db.session.add(input)
         db.session.commit()
         # session['known'] = False
@@ -59,7 +72,8 @@ def index():
         
         # SAVE BROWSER SESSION
         # (NB: this is NOT the db session)
-        session['form_input'] = input_text
+        session['model_name'] = model_name
+        session['input_text'] = input_text
         session['input_lang'] = input_lang
         session['output_lang'] = output_lang
 
@@ -72,8 +86,10 @@ def index():
     # Make the selected form values persistent after each translation by resetting the form
     # ...to the values in the session[] dictionary
     # But the session keys won't exist if it's the first session of the browser
-    if 'form_input' in session:
-        form.form_string_input.data= session['form_input']
+    if 'model_name' in session:
+        form.form_selection_model.data = session['model_name']
+    if 'input_text' in session:
+        form.form_string_input.data= session['input_text']
     if 'input_lang' in session:
         form.form_selection_input_lang.data = session['input_lang']
     if 'output_lang' in session:
@@ -84,7 +100,7 @@ def index():
     return render_template('index.html',
                            form=form,
                            form_output=session.get('form_output'),
-                           form_input=session.get('form_input'), 
+                           form_input=session.get('input_text'), 
                            ouput_selection=session.get('output_lang'),
                            input_selection=session.get('input_lang'),             
                         #    known=session.get('known', False),

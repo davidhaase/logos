@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class TranslationForm(FlaskForm):    
+    form_selection_model = SelectField('Choose a translation model', validators=[DataRequired()])
     form_selection_input_lang = SelectField('Choose a source language', validators=[DataRequired()])
     form_selection_output_lang = SelectField('Choose an target language', validators=[DataRequired()])
     form_string_input = StringField('Enter text to translate', validators=[DataRequired()])
