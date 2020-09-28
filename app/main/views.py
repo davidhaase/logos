@@ -231,7 +231,7 @@ def about():
         spanish = Language(  code='es',name='español', en_name='Spanish')
         italian = Language(  code='it',name='italiano', en_name='Italian')
         german = Language(  code='de',name='deutsch', en_name='German')
-        turkish = Language( code='tk', name='türkçe', en_name='Turkish')
+        turkish = Language( code='tr', name='türkçe', en_name='Turkish')
         language_list = [french, english, spanish, italian, turkish, german]
 
         ten = Epoch(number_of_epochs=10)
