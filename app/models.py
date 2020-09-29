@@ -22,6 +22,7 @@ class Translation(db.Model):
     source_txt = db.Column(db.String(64), index=True)
     target_txt = db.Column(db.String(64), index=True)
     model_id = db.Column(db.Integer)
+    elapsed_time = db.Column(db.DateTime())
 
     def __repr__(self):
         return '<Translation %r>' % self.input
@@ -37,6 +38,13 @@ class TranslationModel(db.Model):
     source_lang_id = db.Column(db.Integer)
     target_lang_id = db.Column(db.Integer)
     build_id = db.Column(db.Integer)
+    model_path = db.Column(db.String)
+    source_tokenizer = db.Column(db.String)
+    source_max_length = db.Column(db.Integer)
+    source_word_count = db.Column(db.Integer)
+    target_tokenizer = db.Column(db.String)
+    target_word_count = db.Column(db.Integer)
+    target_max_length = db.Column(db.Integer)
 
     def __repr__(self):
         return '<TranslationModel %r>' % self.name

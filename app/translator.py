@@ -42,12 +42,10 @@ class Translator():
     def __repr__(self):
         return '<Translator>'
 
-    def __init__(self):
+    def __init__(self, model_prefs):
+        self.preferences = model_prefs
+        self.input_text = None
         try:
-            pickle_path = '/Users/davidhaase/Documents/Projects/logos/app/data/models/de_to_en/basic_75K_35E_fixed/pickles/model_prefs.pkl'
-            model_prefs = pickle.load(open(pickle_path, 'rb'))
-            model_path = '/Users/davidhaase/Documents/Projects/logos/app/data/models/de_to_en/basic_75K_35E_fixed/model.h5'
-            self.preferences = model_prefs
             #dict.preferences = {'model_path': '',
             #                   'source_tokenizer': keras_obj,
             #                   'source_max_length': int,
@@ -56,9 +54,8 @@ class Translator():
             #                   'target_word_count': int,
             #                   'target_max_length': int }
             # print(self.preferences['model_path'])
-            self.model = load_model(model_path)
-            print(self.preferences['source_tokenizer'])
-            self.input_text = None
+            
+            self.model = load_model(model_prefs['model_path'])          
 
         except Exception as e:
             print(e)

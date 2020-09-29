@@ -41,9 +41,9 @@
         {% for translation in table_of_translation_history %}
         <tr>
           <td>{{ translation[0] }}</td>
-          <td>{{ translation[2] }}</td>
-          <td>{{ translation[3] }}</td>
-          <td><a href="/themodels" target="_blank">{{ translation[4] }}</a></td>
+          <td>({{ translation[3] }}) {{ translation[2] }}</td>
+          <td>({{ translation [5] }}) {{ translation[4] }}</td>
+          <td><a href="/themodels" target="_blank">{{ translation[6] }}</a></td>
           <td>{{ moment(translation[1]).format('LLLL') }}</td>
         </tr>
         {% endfor %}
