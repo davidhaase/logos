@@ -31,8 +31,8 @@ def seconds_to_string(total_seconds):
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    form = TranslationForm()
-    # LOAD PAGE VARIABLES
+    
+    # LOAD VARIABLES for the PAGE in GENERAL
     # Display a table of all the translations made so far
     table_of_translation_history = [[   translation.id, 
                                         translation.date, 
@@ -42,12 +42,13 @@ def index():
                                         Language.query.filter_by(id=TranslationModel.query.filter_by(id=translation.model_id).first().target_lang_id).first().name,
                                         TranslationModel.query.filter_by(id=translation.model_id).first().name,
                                         translation.elapsed_time] \
-        for translation in Translation.query.all()]
+                                        for translation in Translation.query.all()]
 
     
-    # LOAD FORM VARIABLES
+    # LOAD VARIABLES for the FORM
     # Query the TranstionModel table to determine which languages are available as source and target
     # Populate the user options based on these availabilities
+    form = TranslationForm()
     
     # model selection
     form.form_selection_model.choices = [f'{model.name}' for model in db.session.query(TranslationModel.name).distinct()]
@@ -63,7 +64,7 @@ def index():
     # USER CLICKS SUBMIT (FORM EVENT) - Build a new record and add it to the Translation table
     if form.validate_on_submit():
         
-        # Set a timer to see how long it takes
+        # Start a timer to see how long it takes to translate
         start_time = datetime.utcnow()
 
         # Load the data from the form into memory
@@ -72,75 +73,68 @@ def index():
         input_lang = form.form_selection_input_lang.data
         output_lang = form.form_selection_output_lang.data
         output_text = ''
-  
-        # input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
-        # if input_text_already_translated is None:
-        app_dir = current_app.config['APP_DIR']
-        input_lang_code = Language.query.filter_by(en_name=input_lang).first().code
-        output_lang_code = Language.query.filter_by(en_name=output_lang).first().code
-        source_lang_id = Language.query.filter_by(en_name = input_lang).first().id 
-        target_lang_id = Language.query.filter_by(en_name = output_lang).first().id
-        model = TranslationModel.query.filter_by(   name=model_name,
-                                                    source_lang_id=source_lang_id,
-                                                    target_lang_id=target_lang_id).first()
-
-
-        model_prefs = { 'model_path': app_dir + model.model_path,
-                        'source_tokenizer' : pickle.load(open(app_dir+ model.source_tokenizer, 'rb')),
-                        'source_word_count' : model.source_word_count,
-                        'source_max_length' : model.source_max_length,
-                        'target_tokenizer' : pickle.load(open(app_dir + model.target_tokenizer, 'rb')),
-                        'target_word_count' : model.target_word_count,
-                        'target_max_length' : model.target_max_length }
-
-        # TranslationModel(   name=f'devX_35e_75s',
-        #                     date=date,
-        #                     source_lang_id=Language.query.filter_by(code=model[:2]).first().id,
-        #                     target_lang_id=Language.query.filter_by(code=model[-3:-1]).first().id,
-        #                     build_id=Build.query.filter_by(name='devX').first().id,
-        #                     number_of_epochs=35,
-        #                     number_of_sentences=75000,
-        #                     source_tokenizer=source_tokenizer_file,
-        #                     source_max_length=model_prefs['source_max_length'],
-        #                     target_tokenizer=target_tokenizer_file,
-        #                     target_max_length=model_prefs['target_max_length'],
-        #                     model_path=prefix_path + model + model_suffix_path)
-
-
-        tr = Translator(model_prefs)
-        output_text = tr.translate(input_text)
-        date=datetime.utcnow()
-        elapsed_time = date-start_time
-        input = Translation(    model_id=model.id,
-                                source_txt=input_text, 
-                                target_txt=output_text, 
-                                elapsed_time=seconds_to_string(elapsed_time.seconds),
-                                date=date)
-        db.session.add(input)
-        db.session.commit()
-        # session['known'] = False
-        # else:
-            # Run the translation on input_text
-            # path_to_model = '/Users/davidhaase/Documents/Learn/Flatiron/Projects/machine-translator/models/de_to_en/basic_75K_35E_fixed/pickles'
-            # path_to_pickle = path_to_model + '/model_prefs.pkl'
-            # model_prefs = pickle.load(open(path_to_pickle, 'rb'))
-            # TRANSLATOR_MODEL_LOCATION = os.environ.get('TRANSLATOR_MODEL_LOCATION')
-            
-            # session['known'] = True
         
+        # Models are unique by the name, source language and target language
+        model = TranslationModel.query.filter_by(   name=model_name,
+                                                    source_lang_id=Language.query.filter_by(en_name = input_lang).first().id,
+                                                    target_lang_id=Language.query.filter_by(en_name = output_lang).first().id).first()
+
+        # CHECK FOR CACHED TRANSLATIONS FIRST
+        existing_translation = Translation.query.filter_by(model_id=model.id, source_txt=input_text).first()
+        if existing_translation is None:
+            
+            # THEN LOCATE THE MODEL AND TOKENIZERS
+            # The paths to the /data/models/ directory are relative in the DB
+            # ...so get the app directory set in the the CONFIG
+            app_dir = current_app.config['APP_DIR']
+            
+            # This dict() is passed to the Translator model
+            model_prefs = { 'model_path': app_dir + model.model_path,
+                            'source_tokenizer' : pickle.load(open(app_dir+ model.source_tokenizer, 'rb')),
+                            'source_word_count' : model.source_word_count,
+                            'source_max_length' : model.source_max_length,
+                            'target_tokenizer' : pickle.load(open(app_dir + model.target_tokenizer, 'rb')),
+                            'target_word_count' : model.target_word_count,
+                            'target_max_length' : model.target_max_length }
+
+            # HERE IS THE TRANSLATION PIECE
+            tr = Translator(model_prefs)
+            output_text = tr.translate(input_text)
+
+            # Tag it with the date and duration for curiosity
+            date=datetime.utcnow()
+            elapsed_time = date-start_time
+            session['known'] = False
+            
+            # ADD TO THE DB
+            try:
+                input = Translation(model_id=model.id,
+                                    source_txt=input_text, 
+                                    target_txt=output_text, 
+                                    elapsed_time=seconds_to_string(elapsed_time.seconds),
+                                    date=date)
+                db.session.add(input)
+                db.session.commit()
+            except Exception as e:
+                flash(f'Error: not able to add translation to database; {e}') 
+        
+        # The translation alrady exist for this model and languages so used the cached version
+        else:
+            session['known'] = True
+            output_text = existing_translation.target_txt
+               
         # SAVE BROWSER SESSION
         # (NB: this is NOT the db session)
         session['model_name'] = model_name
         session['input_text'] = input_text
         session['input_lang'] = input_lang
         session['output_lang'] = output_lang
-
-        # REPLACE this call to tr.translate() EVENTUALLY with table query of output
-        session['form_output'] = output_text #tr.translate(input=input_text, lang=output_lang, path_to_model='AWS')
+        session['table_of_translation_history'] = table_of_translation_history
+        session['form_output'] = output_text
         
         return redirect(url_for('.index'))
     
-    # LOAD SESSION VARIABLES (for Persistence)
+    # MAKE FORM PERSISTENT with BROWSER SESSION VARIABLES
     # Make the selected form values persistent after each translation by resetting the form
     # ...to the values in the session[] dictionary
     # But the session keys won't exist if it's the first session of the browser
@@ -152,6 +146,7 @@ def index():
         form.form_selection_input_lang.data = session['input_lang']
     if 'output_lang' in session:
         form.form_selection_output_lang.data= session['output_lang']
+
         
         
     return render_template('index.html',
@@ -160,7 +155,7 @@ def index():
                            form_input=session.get('input_text'), 
                            ouput_selection=session.get('output_lang'),
                            input_selection=session.get('input_lang'),             
-                        #    known=session.get('known', False),
+                           known=session.get('known', False),
                            table_of_translation_history=table_of_translation_history,
                            current_time=datetime.utcnow())
 
