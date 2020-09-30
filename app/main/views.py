@@ -75,30 +75,44 @@ def index():
         # if input_text_already_translated is None:
         input_lang_code = Language.query.filter_by(en_name=input_lang).first().code
         output_lang_code = Language.query.filter_by(en_name=output_lang).first().code
-        pickle_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/pickles/model_prefs.pkl'
-        model_prefs = pickle.load(open(pickle_path, 'rb'))
-        model_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/model.h5'
-        model_prefs['model_path'] = model_path    
+        # pickle_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/pickles/model_prefs.pkl'
+        # model_prefs = pickle.load(open(pickle_path, 'rb'))
+        # model_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/model.h5'
+        # model_prefs['model_path'] = model_path    
         
         source_lang_id = Language.query.filter_by(en_name = input_lang).first().id 
         target_lang_id = Language.query.filter_by(en_name = output_lang).first().id
-        model_id = TranslationModel.query.filter_by(    name=model_name,
+        model = TranslationModel.query.filter_by(    name=model_name,
                                                         source_lang_id=source_lang_id,
-                                                        target_lang_id=target_lang_id).first().id
-        # model_prefs = { 'model_path': model_id.model_path,
-        #                 'source_tokenizer' : source_tokenizer,
-        #                 'source_word_count' : source_word_count,
-        #                 'source_word_count' : source_word_count,
-        #                 'target_tokenizer' : target_tokenizer,
-        #                 'target_word_count' : target_word_count,
-        #                 'target_max_length' : target_max_length }
+                                                        target_lang_id=target_lang_id).first()
+
+        model_prefs = { 'model_path': model.model_path,
+                        'source_tokenizer' : pickle.load(open(model.source_tokenizer, 'rb')),
+                        'source_word_count' : model.source_word_count,
+                        'source_max_length' : model.source_max_length,
+                        'target_tokenizer' : pickle.load(open(model.target_tokenizer, 'rb')),
+                        'target_word_count' : model.target_word_count,
+                        'target_max_length' : model.target_max_length }
+
+        # TranslationModel(   name=f'devX_35e_75s',
+        #                     date=date,
+        #                     source_lang_id=Language.query.filter_by(code=model[:2]).first().id,
+        #                     target_lang_id=Language.query.filter_by(code=model[-3:-1]).first().id,
+        #                     build_id=Build.query.filter_by(name='devX').first().id,
+        #                     number_of_epochs=35,
+        #                     number_of_sentences=75000,
+        #                     source_tokenizer=source_tokenizer_file,
+        #                     source_max_length=model_prefs['source_max_length'],
+        #                     target_tokenizer=target_tokenizer_file,
+        #                     target_max_length=model_prefs['target_max_length'],
+        #                     model_path=prefix_path + model + model_suffix_path)
 
 
         tr = Translator(model_prefs)
         output_text = tr.translate(input_text)
         date=datetime.utcnow()
         elapsed_time = date-start_time
-        input = Translation(    model_id=model_id,
+        input = Translation(    model_id=model.id,
                                 source_txt=input_text, 
                                 target_txt=output_text, 
                                 elapsed_time=seconds_to_string(elapsed_time.seconds),
@@ -337,10 +351,10 @@ def about():
             
             # Extract the serialized tokenizers
             source_tokenizer_file = prefix_path + model + 'basic_75K_35E_fixed/pickles/source_tokenizer.pkl'
-            # pickle.dump(model_prefs['source_tokenizer'], open(source_tokenizer_file, 'wb+'))
+            pickle.dump(model_prefs['source_tokenizer'], open(source_tokenizer_file, 'wb+'))
 
             target_tokenizer_file = prefix_path + model + 'basic_75K_35E_fixed/pickles/target_tokenizer.pkl'
-            # pickle.dump(model_prefs['target_tokenizer'], open(target_tokenizer_file, 'wb+'))
+            pickle.dump(model_prefs['target_tokenizer'], open(target_tokenizer_file, 'wb+'))
 
             row_item = TranslationModel(name=f'devX_35e_75s',
                                         date=date,

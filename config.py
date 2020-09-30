@@ -1,15 +1,10 @@
 import os
-
-from credentials import s3_read_only
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    S3_KEY = s3_read_only['Secret Access Key']
-    S3_ID = s3_read_only['Access Key ID']
 
     @staticmethod
     def init_app(app):
