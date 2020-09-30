@@ -37,6 +37,7 @@
           <th>Target</th>
           <th>Model</th>
           <th>Date Translated</th>
+          <th>Time Elapsed</th>
         </tr>
         {% for translation in table_of_translation_history %}
         <tr>
@@ -44,7 +45,8 @@
           <td>({{ translation[3] }}) {{ translation[2] }}</td>
           <td>({{ translation [5] }}) {{ translation[4] }}</td>
           <td><a href="/themodels" target="_blank">{{ translation[6] }}</a></td>
-          <td>{{ moment(translation[1]).format('LLLL') }}</td>
+          <td>{{ moment(translation[1]).format('LLLL') }} ({{ moment(translation[1]).fromNow(refresh=True) }})</td>
+          <td>{{ translation[7] }}</td>
         </tr>
         {% endfor %}
     </table>

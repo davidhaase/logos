@@ -22,7 +22,7 @@ class Translation(db.Model):
     source_txt = db.Column(db.String(64), index=True)
     target_txt = db.Column(db.String(64), index=True)
     model_id = db.Column(db.Integer)
-    elapsed_time = db.Column(db.DateTime())
+    elapsed_time = db.Column(db.String(64))
 
     def __repr__(self):
         return '<Translation %r>' % self.input

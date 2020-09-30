@@ -9,12 +9,27 @@ from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 
+def seconds_to_string(total_seconds):
+    seconds = total_seconds % 60
+    minutes = total_seconds // 60
+    if minutes > 0:
+        hours = minutes // 60
+        if hours > 0:
+            days = hours // 24
+            if days > 0:
+                return f'{days}d {hours}h {minutes}m {seconds}s'
+            else:
+                return f'{hours}h {minutes}m {seconds}s'
+
+        else:
+            return f'{minutes}m {seconds}s'
+
+    else:
+        return f'{seconds}s'
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    
     form = TranslationForm()
-
     # LOAD PAGE VARIABLES
     # Display a table of all the translations made so far
     table_of_translation_history = [[   translation.id, 
@@ -23,7 +38,8 @@ def index():
                                         Language.query.filter_by(id=TranslationModel.query.filter_by(id=translation.model_id).first().source_lang_id).first().name,
                                         translation.target_txt,
                                         Language.query.filter_by(id=TranslationModel.query.filter_by(id=translation.model_id).first().target_lang_id).first().name,
-                                        TranslationModel.query.filter_by(id=translation.model_id).first().name] \
+                                        TranslationModel.query.filter_by(id=translation.model_id).first().name,
+                                        translation.elapsed_time] \
         for translation in Translation.query.all()]
 
     
@@ -81,9 +97,11 @@ def index():
         tr = Translator(model_prefs)
         output_text = tr.translate(input_text)
         date=datetime.utcnow()
+        elapsed_time = date-start_time
         input = Translation(    model_id=model_id,
                                 source_txt=input_text, 
                                 target_txt=output_text, 
+                                elapsed_time=seconds_to_string(elapsed_time.seconds),
                                 date=date)
         db.session.add(input)
         db.session.commit()
@@ -121,7 +139,6 @@ def index():
         form.form_selection_input_lang.data = session['input_lang']
     if 'output_lang' in session:
         form.form_selection_output_lang.data= session['output_lang']
-        
         
         
     return render_template('index.html',
