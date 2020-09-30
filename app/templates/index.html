@@ -23,7 +23,7 @@
 <h2>Logos Machine Translation<h2>
 {% if known %}
 <h4>({{ ouput_selection }}) {{ form_output }}*</h4>
-<p><i>Translation already exists; showing cached version.</i></p>
+<p><i><Translation already exists; showing cached version.</i></p>
 {% else %}
 <h4>({{ ouput_selection }}) {{ form_output }}</h4>
 {% endif %}
@@ -53,6 +53,17 @@
         {% endfor %}
     </table>
 </div>
-{% endblock %}
-<p>  </p>
-<hr/>
+<br/>
+<br/>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+
+      <a href="https://www.notion.so/Logos-fa312d1eb5504c198090ff0da64bc511" target="_blank"> Logos Productions</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  {% endblock %}
