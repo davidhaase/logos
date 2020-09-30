@@ -8,6 +8,8 @@ from ..models import Translation, Language, TranslationModel, Build, Epoch, Subs
 from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
+from .. import config
+
 
 def seconds_to_string(total_seconds):
     seconds = total_seconds % 60
@@ -73,24 +75,21 @@ def index():
   
         # input_text_already_translated = Translation.query.filter_by(source_txt=input_text).first()  
         # if input_text_already_translated is None:
+        app_dir = current_app.config['APP_DIR']
         input_lang_code = Language.query.filter_by(en_name=input_lang).first().code
         output_lang_code = Language.query.filter_by(en_name=output_lang).first().code
-        # pickle_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/pickles/model_prefs.pkl'
-        # model_prefs = pickle.load(open(pickle_path, 'rb'))
-        # model_path = f'/Users/davidhaase/Documents/Projects/logos/data/models/{input_lang_code}_to_{output_lang_code}/basic_75K_35E_fixed/model.h5'
-        # model_prefs['model_path'] = model_path    
-        
         source_lang_id = Language.query.filter_by(en_name = input_lang).first().id 
         target_lang_id = Language.query.filter_by(en_name = output_lang).first().id
-        model = TranslationModel.query.filter_by(    name=model_name,
-                                                        source_lang_id=source_lang_id,
-                                                        target_lang_id=target_lang_id).first()
+        model = TranslationModel.query.filter_by(   name=model_name,
+                                                    source_lang_id=source_lang_id,
+                                                    target_lang_id=target_lang_id).first()
 
-        model_prefs = { 'model_path': model.model_path,
-                        'source_tokenizer' : pickle.load(open(model.source_tokenizer, 'rb')),
+
+        model_prefs = { 'model_path': app_dir + model.model_path,
+                        'source_tokenizer' : pickle.load(open(app_dir+ model.source_tokenizer, 'rb')),
                         'source_word_count' : model.source_word_count,
                         'source_max_length' : model.source_max_length,
-                        'target_tokenizer' : pickle.load(open(model.target_tokenizer, 'rb')),
+                        'target_tokenizer' : pickle.load(open(app_dir + model.target_tokenizer, 'rb')),
                         'target_word_count' : model.target_word_count,
                         'target_max_length' : model.target_max_length }
 
@@ -342,6 +341,7 @@ def about():
         
         # pickle_path = '/Users/davidhaase/Documents/Projects/logos/data/models/de_to_en/basic_75K_35E_fixed/pickles/model_prefs.pkl'
         prefix_path = '/Users/davidhaase/Documents/Projects/logos/data/models/'
+        relative_path = '/data/models/'
         pickle_suffix_path = 'basic_75K_35E_fixed/pickles/model_prefs.pkl'
         model_suffix_path = 'basic_75K_35E_fixed/model.h5'
         model_list = ['de_to_en/', 'fr_to_en/', 'it_to_en/', 'es_to_en/', 'tr_to_en/']
@@ -350,11 +350,11 @@ def about():
             model_prefs = pickle.load(open(prefix_path + model + pickle_suffix_path, 'rb'))
             
             # Extract the serialized tokenizers
-            source_tokenizer_file = prefix_path + model + 'basic_75K_35E_fixed/pickles/source_tokenizer.pkl'
-            pickle.dump(model_prefs['source_tokenizer'], open(source_tokenizer_file, 'wb+'))
+            source_tokenizer_file = relative_path + model + 'basic_75K_35E_fixed/source_tokenizer.pkl'
+            # pickle.dump(model_prefs['source_tokenizer'], open(source_tokenizer_file, 'wb+'))
 
-            target_tokenizer_file = prefix_path + model + 'basic_75K_35E_fixed/pickles/target_tokenizer.pkl'
-            pickle.dump(model_prefs['target_tokenizer'], open(target_tokenizer_file, 'wb+'))
+            target_tokenizer_file = relative_path + model + 'basic_75K_35E_fixed/target_tokenizer.pkl'
+            # pickle.dump(model_prefs['target_tokenizer'], open(target_tokenizer_file, 'wb+'))
 
             row_item = TranslationModel(name=f'devX_35e_75s',
                                         date=date,
@@ -367,7 +367,7 @@ def about():
                                         source_max_length=model_prefs['source_max_length'],
                                         target_tokenizer=target_tokenizer_file,
                                         target_max_length=model_prefs['target_max_length'],
-                                        model_path=prefix_path + model + model_suffix_path)
+                                        model_path=relative_path + model + model_suffix_path)
             try:
                 db.session.add(row_item)
                 db.session.commit()
