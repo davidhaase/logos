@@ -45,6 +45,7 @@ class TranslationModel(db.Model):
     target_tokenizer = db.Column(db.String)
     target_word_count = db.Column(db.Integer)
     target_max_length = db.Column(db.Integer)
+    aws_bucket_name = db.Column(db.String(64))
 
     def __repr__(self):
         return '<TranslationModel %r>' % self.name

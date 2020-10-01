@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 logos.code-workspace
 data
+tmp

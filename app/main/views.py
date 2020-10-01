@@ -293,7 +293,7 @@ def about():
     form = PopulateTablesForm()
 
     if form.validate_on_submit():
-        
+
         french = Language(  code='fr',name='français', en_name='French')
         english = Language(  code='en',name='english', en_name='English')
         spanish = Language(  code='es',name='español', en_name='Spanish')
@@ -331,49 +331,107 @@ def about():
         except Exception as e:
             flash('Load Failed: ' + str(e))
 
+        s3_dir = S3File('logos-models', 'data')
 
-        model_list = ['basic_75K_35E_fixed', 'basic_50K_35E']
-        sources = ['German', 'French', 'Italian', 'Spanish', 'Turkish']
-        targets = ['English']
-        app_dir = current_app.config['APP_DIR']
-        relative_path = '/data/models/'
-        for model in model_list:
-            path = f'{relative_path}{model}/'
-            for source in sources:
-                s_path = path + f'{source}/'
-                for target in targets:
-                    t_path = s_path + f'{target}/'
-                    pickle_file = app_dir + t_path + 'pickles/model_prefs.pkl'
-                    model_prefs = pickle.load(open(pickle_file, 'rb'))
-                    
-                    source_tokenizer_file = t_path + 'source_tokenizer.pkl'
-                    pickle.dump(model_prefs['source_tokenizer'], open(app_dir + source_tokenizer_file, 'wb+'))
-                    
-                    target_tokenizer_file = t_path + 'target_tokenizer.pkl'
-                    pickle.dump(model_prefs['target_tokenizer'], open(app_dir + target_tokenizer_file, 'wb+'))
+        relative_path = 'data/models/'
+        list_of_models = s3_dir.crawl_models('data/models')
+        for engine in list_of_models:
+            for model in list_of_models[engine]:
+                for source in list_of_models[engine][model]:
+                    for target in list_of_models[engine][model][source]:
+                        path = f'{relative_path}{engine}/{model}/{source}/{target}/'
+                        print(f'{path}')
+                        source_tokenizer_file = path + 'source_tokenizer.pkl'
+                        target_tokenizer_file = path + 'target_tokenizer.pkl'
+                        model_path= path + 'model.h5'
+                        
+                        ### THESE ARE HACKS FOR THE MOMENT
+                        if ('75K' in model):
+                          sentences = 75
+                        else:
+                            sentences = 50
+                        epochs = 35
 
-                if ('75K' in model):
-                    sentences=75
-                else:
-                    sentences=50
-                date = datetime.utcnow()
-                row_item = TranslationModel(name=model,
-                                            date=date,
-                                            source_lang_id=Language.query.filter_by(en_name=source).first().id,
-                                            target_lang_id=Language.query.filter_by(en_name=target).first().id,
-                                            build_id=Build.query.filter_by(name='devX').first().id,
-                                            number_of_epochs=35,
-                                            number_of_sentences=sentences,
-                                            source_tokenizer=source_tokenizer_file,
-                                            source_max_length=model_prefs['source_max_length'],
-                                            target_tokenizer=target_tokenizer_file,
-                                            target_max_length=model_prefs['target_max_length'],
-                                            model_path=t_path + 'model.h5')
-                try:
-                    db.session.add(row_item)
-                    db.session.commit()
-                except Exception as e:
-                    flash('TranslationModel Load Failed: ' + str(e))
+                        app_dir = current_app.config['APP_DIR']
+                        target_pkl = f'{app_dir}/tmp/model_prefs.pkl'
+                        s3_pkl = f'{path}pickles/model_prefs.pkl'
+                        
+                        pickled_file = S3File('logos-models', s3_pkl)
+                        pickled_file.copy_from_S3_to(target_pkl)
+                        model_prefs = pickle.load(open(target_pkl, 'rb'))
+
+                        ### End hacks
+                        
+
+                        date = datetime.utcnow()
+                        row_item = TranslationModel(name=model,
+                                                    date=date,
+                                                    source_lang_id=Language.query.filter_by(en_name=source).first().id,
+                                                    target_lang_id=Language.query.filter_by(en_name=target).first().id,
+                                                    build_id=Build.query.filter_by(name=engine).first().id,
+                                                    number_of_epochs=epochs,
+                                                    number_of_sentences=sentences,
+                                                    source_tokenizer=source_tokenizer_file,
+                                                    source_max_length=model_prefs['source_max_length'],
+                                                    target_tokenizer=target_tokenizer_file,
+                                                    target_max_length=model_prefs['target_max_length'],
+                                                    model_path=model_path,
+                                                    aws_bucket_name='logos-models')
+                        db.session.add(row_item)
+
+        try:
+            db.session.commit()
+        except Exception as e:
+            flash('TranslationModel Load Failed: ' + str(e))
+
+
+        
+
+
+        
+        
+        # model_list = ['basic_75K_35E_fixed', 'basic_50K_35E']
+        # sources = ['German', 'French', 'Italian', 'Spanish', 'Turkish']
+        # targets = ['English']
+        # app_dir = current_app.config['APP_DIR']
+        # relative_path = '/data/models/'
+        # for model in model_list:
+        #     path = f'{relative_path}{model}/'
+        #     for source in sources:
+        #         s_path = path + f'{source}/'
+        #         for target in targets:
+        #             t_path = s_path + f'{target}/'
+        #             pickle_file = app_dir + t_path + 'pickles/model_prefs.pkl'
+        #             model_prefs = pickle.load(open(pickle_file, 'rb'))
+                    
+        #             source_tokenizer_file = t_path + 'source_tokenizer.pkl'
+        #             pickle.dump(model_prefs['source_tokenizer'], open(app_dir + source_tokenizer_file, 'wb+'))
+                    
+        #             target_tokenizer_file = t_path + 'target_tokenizer.pkl'
+        #             pickle.dump(model_prefs['target_tokenizer'], open(app_dir + target_tokenizer_file, 'wb+'))
+
+        #         if ('75K' in model):
+        #             sentences=75
+        #         else:
+        #             sentences=50
+        #         date = datetime.utcnow()
+        #         row_item = TranslationModel(name=model,
+        #                                     date=date,
+        #                                     source_lang_id=Language.query.filter_by(en_name=source).first().id,
+        #                                     target_lang_id=Language.query.filter_by(en_name=target).first().id,
+        #                                     build_id=Build.query.filter_by(name='devX').first().id,
+        #                                     number_of_epochs=35,
+        #                                     number_of_sentences=sentences,
+        #                                     source_tokenizer=source_tokenizer_file,
+        #                                     source_max_length=model_prefs['source_max_length'],
+        #                                     target_tokenizer=target_tokenizer_file,
+        #                                     target_max_length=model_prefs['target_max_length'],
+        #                                     model_path=t_path + 'model.h5')
+        #         try:
+        #             db.session.add(row_item)
+        #             db.session.commit()
+        #         except Exception as e:
+        #             flash('TranslationModel Load Failed: ' + str(e))
 
         return redirect(url_for('.about'))
     return render_template('about.html', form=form)   
