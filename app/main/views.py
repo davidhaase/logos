@@ -73,44 +73,39 @@ def index():
             # Keep in mind that the paths defined in the DB are relative: they start at /data/...
             # ...so get the full path to the app directory set in the the CONFIG
             app_dir = current_app.config['APP_DIR']
-            # full_path_to_model = app_dir + 'tmp/' + model.model_path
-            # full_path_to_source_tokenizer = app_dir + 'tmp/' + model.source_tokenizer
-            # full_path_to_target_tokenizer = app_dir + 'tmp/' + model.target_tokenizer
+            full_path_to_model = f'{app_dir}/{model.model_path}'
+            full_path_to_source_tokenizer = f'{app_dir}/{model.source_tokenizer}'
+            full_path_to_target_tokenizer = f'{app_dir}/{model.target_tokenizer}'
 
             # First confirm that the three files exist locally: model.ht, source_tokenize.pkl, target_tokenizer.pkl
             # If they don't exist, you'll have to fetch them from AWS S3
-            # if not os.path.exists(full_path_to_model):
-            #     target_location = full_path_to_model
+            if not os.path.exists(full_path_to_model):
                 
-            #     # Do a quick check to see if all the partent directories are there first
-            #     model_dir = os.path.abspath(os.path.dirname(target_location))
-            #     if not os.path.exists(model_dir):
-            #         os.makedirs(model_dir)
+                # Do a quick check to see if all the partent directories are there first
+                model_dir = os.path.abspath(os.path.dirname(full_path_to_model))
+                if not os.path.exists(model_dir):
+                    os.makedirs(model_dir)
                 
-            #     # Now fetch the files from AWS S3
-            #     model_file_in_cloud = S3File(model.s3_bucket, model.s3_key)
-            #     model_file_in_cloud.copy_from_S3_to(target_location)
-                
-            #     #  or \
-            #     # not os.path.exists(app_dir + model.source_tokenizer) or \
-            #     # not os.path.exists(app_dir + model.target_tokenizer)):
-            #     print('fetch from S3')
+                # Now fetch the files from AWS S3
+                file_in_cloud = S3File(model.aws_bucket_name, model.model_path)
+                file_in_cloud.copy_from_S3_to(full_path_to_model)
 
-            # else:
-            #     target_location = app_dir + '/tmp/tmp2/tmp3/' + 'model.h5'
-            #     model_dir = os.path.abspath(os.path.dirname(target_location))
-            #     if not os.path.exists(model_dir):
-            #         os.makedirs(model_dir)
-            #     model_file_in_cloud = S3File('logos-models', 'data/models/de_to_en/basic_75K_35E_fixed/model.h5')
-            #     model_file_in_cloud.copy_from_S3_to(target_location)
+            if not os.path.exists(full_path_to_source_tokenizer):
+                file_in_cloud = S3File(model.aws_bucket_name, model.source_tokenizer)
+                file_in_cloud.copy_from_S3_to(full_path_to_source_tokenizer)
+                print(full_path_to_source_tokenizer)
+
+            if not os.path.exists(full_path_to_target_tokenizer):    
+                file_in_cloud = S3File(model.aws_bucket_name, model.target_tokenizer)
+                file_in_cloud.copy_from_S3_to(full_path_to_target_tokenizer)
 
             
             # This dict() is passed to the Translator model
-            model_prefs = { 'model_path': app_dir + model.model_path,
-                            'source_tokenizer' : pickle.load(open(app_dir+ model.source_tokenizer, 'rb')),
+            model_prefs = { 'model_path': f'{app_dir}/{model.model_path}',
+                            'source_tokenizer' : pickle.load(open(f'{app_dir}/{model.source_tokenizer}', 'rb')),
                             'source_word_count' : model.source_word_count,
                             'source_max_length' : model.source_max_length,
-                            'target_tokenizer' : pickle.load(open(app_dir + model.target_tokenizer, 'rb')),
+                            'target_tokenizer' : pickle.load(open(f'{app_dir}/{model.target_tokenizer}', 'rb')),
                             'target_word_count' : model.target_word_count,
                             'target_max_length' : model.target_max_length }
 
