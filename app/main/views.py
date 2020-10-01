@@ -2,6 +2,8 @@ import os
 from datetime import datetime
 import pickle
 
+from ..utils import S3File, seconds_to_string
+
 from flask import render_template, session, redirect, url_for, current_app, flash
 from .. import db
 from ..models import Translation, Language, TranslationModel, Build, Epoch, Subset
@@ -11,23 +13,6 @@ from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 from .. import config
 
 
-def seconds_to_string(total_seconds):
-    seconds = total_seconds % 60
-    minutes = total_seconds // 60
-    if minutes > 0:
-        hours = minutes // 60
-        if hours > 0:
-            days = hours // 24
-            if days > 0:
-                return f'{days}d {hours}h {minutes}m {seconds}s'
-            else:
-                return f'{hours}h {minutes}m {seconds}s'
-
-        else:
-            return f'{minutes}m {seconds}s'
-
-    else:
-        return f'{seconds}s'
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -74,7 +59,8 @@ def index():
         output_lang = form.form_selection_output_lang.data
         output_text = ''
         
-        # Models are unique by the name, source language and target language
+        # Model IDs are unique by: name, source language and target language
+        # NOTE:  Model names are not uniqe
         model = TranslationModel.query.filter_by(   name=model_name,
                                                     source_lang_id=Language.query.filter_by(en_name = input_lang).first().id,
                                                     target_lang_id=Language.query.filter_by(en_name = output_lang).first().id).first()
@@ -83,10 +69,41 @@ def index():
         existing_translation = Translation.query.filter_by(model_id=model.id, source_txt=input_text).first()
         if existing_translation is None:
             
-            # THEN LOCATE THE MODEL AND TOKENIZERS
-            # The paths to the /data/models/ directory are relative in the DB
-            # ...so get the app directory set in the the CONFIG
+            # CHECK FOR LOCAL FILES: model.h5, source_tokenizer.pkl, & target_tokenizer.pkl
+            # Keep in mind that the paths defined in the DB are relative: they start at /data/...
+            # ...so get the full path to the app directory set in the the CONFIG
             app_dir = current_app.config['APP_DIR']
+            # full_path_to_model = app_dir + 'tmp/' + model.model_path
+            # full_path_to_source_tokenizer = app_dir + 'tmp/' + model.source_tokenizer
+            # full_path_to_target_tokenizer = app_dir + 'tmp/' + model.target_tokenizer
+
+            # First confirm that the three files exist locally: model.ht, source_tokenize.pkl, target_tokenizer.pkl
+            # If they don't exist, you'll have to fetch them from AWS S3
+            # if not os.path.exists(full_path_to_model):
+            #     target_location = full_path_to_model
+                
+            #     # Do a quick check to see if all the partent directories are there first
+            #     model_dir = os.path.abspath(os.path.dirname(target_location))
+            #     if not os.path.exists(model_dir):
+            #         os.makedirs(model_dir)
+                
+            #     # Now fetch the files from AWS S3
+            #     model_file_in_cloud = S3File(model.s3_bucket, model.s3_key)
+            #     model_file_in_cloud.copy_from_S3_to(target_location)
+                
+            #     #  or \
+            #     # not os.path.exists(app_dir + model.source_tokenizer) or \
+            #     # not os.path.exists(app_dir + model.target_tokenizer)):
+            #     print('fetch from S3')
+
+            # else:
+            #     target_location = app_dir + '/tmp/tmp2/tmp3/' + 'model.h5'
+            #     model_dir = os.path.abspath(os.path.dirname(target_location))
+            #     if not os.path.exists(model_dir):
+            #         os.makedirs(model_dir)
+            #     model_file_in_cloud = S3File('logos-models', 'data/models/de_to_en/basic_75K_35E_fixed/model.h5')
+            #     model_file_in_cloud.copy_from_S3_to(target_location)
+
             
             # This dict() is passed to the Translator model
             model_prefs = { 'model_path': app_dir + model.model_path,
