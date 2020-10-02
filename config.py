@@ -6,6 +6,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     APP_DIR = basedir
+    DATA_DIR = '/data/models/'
+    AWS_S3_BUCKET = 'logos-models'
 
     @staticmethod
     def init_app(app):

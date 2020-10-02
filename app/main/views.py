@@ -11,6 +11,7 @@ from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 from .. import config
+# from ..filemanager import create_file
 
 
 
@@ -48,9 +49,6 @@ def index():
 
     # USER CLICKS SUBMIT (FORM EVENT) - Build a new record and add it to the Translation table
     if form.validate_on_submit():
-        
-        # Start a timer to see how long it takes to translate
-        start_time = datetime.utcnow()
 
         # Load the data from the form into memory
         model_name = form.form_selection_model.data
@@ -93,7 +91,6 @@ def index():
             if not os.path.exists(full_path_to_source_tokenizer):
                 file_in_cloud = S3File(model.aws_bucket_name, model.source_tokenizer)
                 file_in_cloud.copy_from_S3_to(full_path_to_source_tokenizer)
-                print(full_path_to_source_tokenizer)
 
             if not os.path.exists(full_path_to_target_tokenizer):    
                 file_in_cloud = S3File(model.aws_bucket_name, model.target_tokenizer)
@@ -110,6 +107,8 @@ def index():
                             'target_max_length' : model.target_max_length }
 
             # HERE IS THE TRANSLATION PIECE
+            # Start a timer to see how long it takes to translate
+            start_time = datetime.utcnow()
             tr = Translator(model_prefs)
             output_text = tr.translate(input_text)
 
@@ -379,54 +378,6 @@ def about():
         except Exception as e:
             flash('TranslationModel Load Failed: ' + str(e))
 
-
-        
-
-
-        
-        
-        # model_list = ['basic_75K_35E_fixed', 'basic_50K_35E']
-        # sources = ['German', 'French', 'Italian', 'Spanish', 'Turkish']
-        # targets = ['English']
-        # app_dir = current_app.config['APP_DIR']
-        # relative_path = '/data/models/'
-        # for model in model_list:
-        #     path = f'{relative_path}{model}/'
-        #     for source in sources:
-        #         s_path = path + f'{source}/'
-        #         for target in targets:
-        #             t_path = s_path + f'{target}/'
-        #             pickle_file = app_dir + t_path + 'pickles/model_prefs.pkl'
-        #             model_prefs = pickle.load(open(pickle_file, 'rb'))
-                    
-        #             source_tokenizer_file = t_path + 'source_tokenizer.pkl'
-        #             pickle.dump(model_prefs['source_tokenizer'], open(app_dir + source_tokenizer_file, 'wb+'))
-                    
-        #             target_tokenizer_file = t_path + 'target_tokenizer.pkl'
-        #             pickle.dump(model_prefs['target_tokenizer'], open(app_dir + target_tokenizer_file, 'wb+'))
-
-        #         if ('75K' in model):
-        #             sentences=75
-        #         else:
-        #             sentences=50
-        #         date = datetime.utcnow()
-        #         row_item = TranslationModel(name=model,
-        #                                     date=date,
-        #                                     source_lang_id=Language.query.filter_by(en_name=source).first().id,
-        #                                     target_lang_id=Language.query.filter_by(en_name=target).first().id,
-        #                                     build_id=Build.query.filter_by(name='devX').first().id,
-        #                                     number_of_epochs=35,
-        #                                     number_of_sentences=sentences,
-        #                                     source_tokenizer=source_tokenizer_file,
-        #                                     source_max_length=model_prefs['source_max_length'],
-        #                                     target_tokenizer=target_tokenizer_file,
-        #                                     target_max_length=model_prefs['target_max_length'],
-        #                                     model_path=t_path + 'model.h5')
-        #         try:
-        #             db.session.add(row_item)
-        #             db.session.commit()
-        #         except Exception as e:
-        #             flash('TranslationModel Load Failed: ' + str(e))
 
         return redirect(url_for('.about'))
     return render_template('about.html', form=form)   
