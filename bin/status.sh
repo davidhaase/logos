@@ -13,8 +13,13 @@
 
 export GREP_OPTIONS=
 
+# LOCAL PATHS
+# Load the local paths
 APP_HOME=${HOME}/Documents/Projects/logos
 
+# PID and .PID FILE
+# If the program spun up correctly in the start.sh script, 
+# ...then, a .PID file was created with a single value: the PID
 if [ -f ${APP_HOME}/run/.pid ];then
   PID=$(cat ${APP_HOME}/run/.pid)
   PROC=$(/bin/ps auwwwx|grep -w "${PID}"|grep -v grep|awk '{print $2}')

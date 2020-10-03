@@ -41,9 +41,14 @@ if [ ! -f ${APP_HOME}/run/.pid ];then
   cd ${APP_HOME}
   export FLASK_APP=${APP_HOME}/logos.py
   export FLASK_DEBUG=1
+  
+  # ...&-command to run in the background
   ${APP_HOME}/venv/bin/flask run 1>${LOG_OUT} 2>${LOG_ERR} &
 
+  # ...$! returns the PID
   echo $! > ${APP_HOME}/run/.pid
+  
+  # ...cat "concatentate the text from [filename]"
   echo "Started Logos as process $(cat ${APP_HOME}/run/.pid)."
 
 # A PID file exists already, is it already running?
