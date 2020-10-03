@@ -11,13 +11,14 @@ from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 from .. import config
+from .. import logging
+log = logging.getLogger(__name__)
 # from ..filemanager import create_file
 
-
+log = logging.getLogger(__name__)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    
     # LOAD VARIABLES for the PAGE in GENERAL
     # Display a table of all the translations made so far
     table_of_translation_history = [[   translation.id, 
