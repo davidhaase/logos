@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import json
 import pickle
 
 from ..utils import S3File, seconds_to_string
@@ -7,15 +8,16 @@ from ..utils import S3File, seconds_to_string
 from flask import render_template, session, redirect, url_for, current_app, flash
 from .. import db
 from ..models import Translation, Language, TranslationModel, Build, Epoch, Subset
+from ..dynamo import dynoTranslation, DynoLanguage
 from ..translator import Translator
 from . import main
 from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 from .. import config
 from .. import logging
 log = logging.getLogger(__name__)
-# from ..filemanager import create_file
 
-log = logging.getLogger(__name__)
+
+# from ..filemanager import create_file
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -58,11 +60,13 @@ def index():
         output_lang = form.form_selection_output_lang.data
         output_text = ''
         
+        
         # Model IDs are unique by: name, source language and target language
         # NOTE:  Model names are not uniqe
         model = TranslationModel.query.filter_by(   name=model_name,
                                                     source_lang_id=Language.query.filter_by(en_name = input_lang).first().id,
                                                     target_lang_id=Language.query.filter_by(en_name = output_lang).first().id).first()
+
 
         # CHECK FOR CACHED TRANSLATIONS FIRST
         existing_translation = Translation.query.filter_by(model_id=model.id, source_txt=input_text).first()
@@ -127,6 +131,19 @@ def index():
                                     date=date)
                 db.session.add(input)
                 db.session.commit()
+
+                translation = dynoTranslation()
+                translation_record={
+                    'modelName' : model_name,
+                    'inputString' : input_text,
+                    'sourceEnLang' : input_lang,
+                    'outputString' : output_text,
+                    'targetEnLang' : output_lang,
+                    'duration' : seconds_to_string(elapsed_time.seconds),
+                    'dateCreated' : date.strftime("%m/%d/%Y, %H:%M:%S")
+                }
+                response = translation.put_item(translation_record)
+
             except Exception as e:
                 flash(f'Error: not able to add translation to database; {e}') 
         
@@ -284,104 +301,93 @@ def themodels():
 
 @main.route('/about', methods=['GET', 'POST'])
 def about():
-
     form = PopulateTablesForm()
 
     if form.validate_on_submit():
+        
+        # BUILD LANGUAGE TABLE in AWS
+        # One-time code to build language table from json file in json dir
+        # Languages = DynoLanguage()
+        # json_file = current_app.config['APP_DIR'] + '/bin/json/languagedata.json'
+         
+        # with open(json_file) as json_file:
+        #     language_list = json.load(json_file)
+        # form_list = [Languages.load_items(language_list)]
+        
+        # modelName = 'devX_35e_75Ksent'
+        # form_list = []
+        # Translations = dynoTranslation()
+        # translation_list = Translations.query_translations(modelName)
+        # for translation in translation_list:
+        #     form_list.append(f'{(translation["modelName"])} : {translation["inputString"]} : {translation["outputString"]}\n')
 
-        french = Language(  code='fr',name='français', en_name='French')
-        english = Language(  code='en',name='english', en_name='English')
-        spanish = Language(  code='es',name='español', en_name='Spanish')
-        italian = Language(  code='it',name='italiano', en_name='Italian')
-        german = Language(  code='de',name='deutsch', en_name='German')
-        turkish = Language( code='tr', name='türkçe', en_name='Turkish')
-        language_list = [french, english, spanish, italian, turkish, german]
-
-        ten = Epoch(number_of_epochs=10)
-        twenty = Epoch(number_of_epochs=20)
-        thirty_five = Epoch(number_of_epochs=35)
-        fifty = Epoch(number_of_epochs=50)
-        seventy_five = Epoch(number_of_epochs=75)
-        one_hundred = Epoch(number_of_epochs=100)
-        one_fifty = Epoch(number_of_epochs=150)
-        epoch_list = [ten, twenty, thirty_five, fifty, seventy_five, one_hundred, one_fifty]
-
-        ten_k = Subset(number_of_sentences=10000, display_string_of_number='10K')
-        twenty_k = Subset(number_of_sentences=20000, display_string_of_number='20K')
-        fifty_k = Subset(number_of_sentences=50000, display_string_of_number='50K')
-        seventy_five_k = Subset(number_of_sentences=75000, display_string_of_number='75K')
-        hundred_k = Subset(number_of_sentences=100000, display_string_of_number='100K')
-        subset_list = [ten_k, twenty_k, fifty_k, seventy_five_k, hundred_k]
-
-        empty_build = Build(name='devX', summary='No translation model is implemented; just string changes')
-
-        try:
-            db.session.add_all(language_list)
-            db.session.add_all(epoch_list)
-            db.session.add_all(subset_list)
-            db.session.add(empty_build)
-            db.session.commit() 
-            flash('DB Tables Loaded') 
-
-        except Exception as e:
-            flash('Load Failed: ' + str(e))
-
-        s3_dir = S3File('logos-models', 'data')
-
-        relative_path = 'data/models/'
-        list_of_models = s3_dir.crawl_models('data/models')
-        for engine in list_of_models:
-            for model in list_of_models[engine]:
-                for source in list_of_models[engine][model]:
-                    for target in list_of_models[engine][model][source]:
-                        path = f'{relative_path}{engine}/{model}/{source}/{target}/'
-                        print(f'{path}')
-                        source_tokenizer_file = path + 'source_tokenizer.pkl'
-                        target_tokenizer_file = path + 'target_tokenizer.pkl'
-                        model_path= path + 'model.h5'
-                        
-                        ### THESE ARE HACKS FOR THE MOMENT
-                        if ('75K' in model):
-                          sentences = 75
-                        else:
-                            sentences = 50
-                        epochs = 35
-
-                        app_dir = current_app.config['APP_DIR']
-                        target_pkl = f'{app_dir}/tmp/model_prefs.pkl'
-                        s3_pkl = f'{path}pickles/model_prefs.pkl'
-                        
-                        pickled_file = S3File('logos-models', s3_pkl)
-                        pickled_file.copy_from_S3_to(target_pkl)
-                        model_prefs = pickle.load(open(target_pkl, 'rb'))
-
-                        ### End hacks
-                        
-
-                        date = datetime.utcnow()
-                        row_item = TranslationModel(name=model,
-                                                    date=date,
-                                                    source_lang_id=Language.query.filter_by(en_name=source).first().id,
-                                                    target_lang_id=Language.query.filter_by(en_name=target).first().id,
-                                                    build_id=Build.query.filter_by(name=engine).first().id,
-                                                    number_of_epochs=epochs,
-                                                    number_of_sentences=sentences,
-                                                    source_tokenizer=source_tokenizer_file,
-                                                    source_max_length=model_prefs['source_max_length'],
-                                                    target_tokenizer=target_tokenizer_file,
-                                                    target_max_length=model_prefs['target_max_length'],
-                                                    model_path=model_path,
-                                                    aws_bucket_name='logos-models')
-                        db.session.add(row_item)
-
-        try:
-            db.session.commit()
-        except Exception as e:
-            flash('TranslationModel Load Failed: ' + str(e))
-
-
+        session['form_list'] = form_list
         return redirect(url_for('.about'))
-    return render_template('about.html', form=form)   
+
+    return render_template(
+        'about.html', 
+        form=form, 
+        form_list=session.get('form_list'))  
+    
+# def old_about():
+
+
+#         s3_dir = S3File('logos-models', 'data')
+
+#         relative_path = 'data/models/'
+#         list_of_models = s3_dir.crawl_models('data/models')
+#         for engine in list_of_models:
+#             for model in list_of_models[engine]:
+#                 for source in list_of_models[engine][model]:
+#                     for target in list_of_models[engine][model][source]:
+#                         path = f'{relative_path}{engine}/{model}/{source}/{target}/'
+#                         print(f'{path}')
+#                         source_tokenizer_file = path + 'source_tokenizer.pkl'
+#                         target_tokenizer_file = path + 'target_tokenizer.pkl'
+#                         model_path= path + 'model.h5'
+                        
+#                         ### THESE ARE HACKS FOR THE MOMENT
+#                         if ('75K' in model):
+#                           sentences = 75
+#                         else:
+#                             sentences = 50
+#                         epochs = 35
+
+#                         app_dir = current_app.config['APP_DIR']
+#                         target_pkl = f'{app_dir}/tmp/model_prefs.pkl'
+#                         s3_pkl = f'{path}pickles/model_prefs.pkl'
+                        
+#                         pickled_file = S3File('logos-models', s3_pkl)
+#                         pickled_file.copy_from_S3_to(target_pkl)
+#                         model_prefs = pickle.load(open(target_pkl, 'rb'))
+
+#                         ### End hacks
+                        
+
+#                         date = datetime.utcnow()
+#                         row_item = TranslationModel(name=model,
+#                                                     date=date,
+#                                                     source_lang_id=Language.query.filter_by(en_name=source).first().id,
+#                                                     target_lang_id=Language.query.filter_by(en_name=target).first().id,
+#                                                     build_id=Build.query.filter_by(name=engine).first().id,
+#                                                     number_of_epochs=epochs,
+#                                                     number_of_sentences=sentences,
+#                                                     source_tokenizer=source_tokenizer_file,
+#                                                     source_max_length=model_prefs['source_max_length'],
+#                                                     target_tokenizer=target_tokenizer_file,
+#                                                     target_max_length=model_prefs['target_max_length'],
+#                                                     model_path=model_path,
+#                                                     aws_bucket_name='logos-models')
+#                         db.session.add(row_item)
+
+#         try:
+#             db.session.commit()
+#         except Exception as e:
+#             flash('TranslationModel Load Failed: ' + str(e))
+
+
+#         return redirect(url_for('.about'))
+#     return render_template('about.html', form=form)   
 
 
 @main.route('/identify', methods=['GET', 'POST'])

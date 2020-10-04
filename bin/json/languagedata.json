@@ -1,0 +1,37 @@
+[
+    {
+        "englishName": "English",
+        "name": "English",
+        "code": "en"
+    },
+    {
+        "englishName": "French",
+        "name": "Français",
+        "code": "fr"
+    },
+    {
+        "englishName": "Spanish",
+        "name": "Español",
+        "code": "es"
+    },
+    {
+        "englishName": "German",
+        "name": "Deutsch",
+        "code": "de"
+    },
+    {
+        "englishName": "Italian",
+        "name": "Italiano",
+        "code": "it"
+    },
+    {
+        "englishName": "Turkish",
+        "name": "Türkçe",
+        "code": "tr"
+    },
+    {
+        "englishName": "Portuguese",
+        "name": "Português",
+        "code": "pt"
+    }
+]

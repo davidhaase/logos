@@ -19,6 +19,10 @@
     <p>Cras tortor enim, varius convallis mi ac, viverra ultrices sapien. Suspendisse potenti. Pellentesque eget nibh feugiat ligula dignissim auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eleifend sapien tempor efficitur fringilla. Sed sed nulla nunc. Nunc luctus urna ac eros malesuada ultrices. Vivamus ullamcorper mi nec nisl euismod, quis faucibus sem volutpat. Donec egestas consequat volutpat.</p>
     <p>Suspendisse neque metus, posuere a commodo sed, laoreet in ex. Integer facilisis leo vestibulum ultrices imperdiet. Duis orci odio, fringilla sed nisl non, consequat condimentum risus. Sed pellentesque blandit augue at laoreet. Mauris eleifend sem in tincidunt tristique. Ut in orci vitae nisl molestie rutrum. Ut lacinia commodo congue. Quisque rutrum semper facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat ipsum, eleifend non porttitor nec, posuere at lorem. Cras semper, ante ut consequat imperdiet, mauris nibh porta ante, a ullamcorper velit libero vitae lorem. Cras nec lobortis lacus. Praesent condimentum efficitur pharetra. Nulla vitae tortor pulvinar mauris hendrerit faucibus at sit amet felis.</p>
     <p>Proin dapibus lacinia turpis eget commodo. Pellentesque ut bibendum velit. Fusce ut ligula orci. Ut consectetur viverra rutrum. Quisque aliquet neque at velit commodo viverra. Aliquam interdum, risus vitae interdum ultrices, sem lacus aliquam mauris, sit amet euismod mi purus id odio. In luctus ex at purus imperdiet auctor. Morbi sed orci sit amet orci pharetra suscipit. Integer aliquam risus velit, ut tempus ex luctus id. Morbi dolor odio, maximus quis egestas sit amet, dignissim ut nulla. Vestibulum sagittis mollis eros posuere congue. Sed vestibulum lorem ac metus pulvinar, accumsan suscipit nibh pulvinar.</p>
+    
+    {% for movie in form_list %}
+    <p>{{ movie }}</p>
+    {% endfor %}
 
 </div>
 {% endblock %}
