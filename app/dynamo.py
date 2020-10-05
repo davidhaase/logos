@@ -9,7 +9,7 @@ import pprint
 
 class DynoDB():
     def __init__(self, table_name):
-        self.dynamodb = boto3.resource('dynamodb')
+        self.dynamodb = boto3.resource('dynamodb', region_name='us-east-2')
         self.table = self.dynamodb.Table(table_name)
 
     def load_items(self, item_list):
@@ -20,13 +20,35 @@ class DynoDB():
         response = self.table.put_item(Item=item)
         return response
 
+    def scan(self):
+        response = self.table.scan()
+        return response['Items']
+        
+    def get_item(self, model_name):
+        try:
+            response = self.table.get_item(Key={'engine':'devX', 'model_name':model_name})
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return response['Item']
+
+        
+    def get_distinct(self, column):
+        distinct_values = []
+        response = self.table.scan()
+        for value in response['Items']:
+            if value[column] not in distinct_values:
+                distinct_values.append(value[column])
+
+        return distinct_values
+
 class dynoTranslation(DynoDB):
     def __init__(self, table_name='Translations'):
         super().__init__(table_name=table_name)
         
-    def query_translations(self, modelName):       
+    def query_translations(self, model_name):       
         response = self.table.query(
-            KeyConditionExpression=Key('modelName').eq(modelName)
+            KeyConditionExpression=Key('model_name').eq(model_name)
         )
         return response['Items']
 
@@ -37,6 +59,11 @@ class DynoLanguage(DynoDB):
 class DynoModel(DynoDB):
     def __init__(self, table_name='Models'):
         super().__init__(table_name=table_name)
+
+
+
+
+        
     
 
     # if __name__ == '__main__':

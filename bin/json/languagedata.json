@@ -1,36 +1,36 @@
 [
     {
-        "englishName": "English",
+        "en_name": "English",
         "name": "English",
         "code": "en"
     },
     {
-        "englishName": "French",
+        "en_name": "French",
         "name": "Français",
         "code": "fr"
     },
     {
-        "englishName": "Spanish",
+        "en_name": "Spanish",
         "name": "Español",
         "code": "es"
     },
     {
-        "englishName": "German",
+        "en_name": "German",
         "name": "Deutsch",
         "code": "de"
     },
     {
-        "englishName": "Italian",
+        "en_name": "Italian",
         "name": "Italiano",
         "code": "it"
     },
     {
-        "englishName": "Turkish",
+        "en_name": "Turkish",
         "name": "Türkçe",
         "code": "tr"
     },
     {
-        "englishName": "Portuguese",
+        "en_name": "Portuguese",
         "name": "Português",
         "code": "pt"
     }
