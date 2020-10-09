@@ -69,7 +69,7 @@ class Translator():
     def translate(self, line):
         self.input_text = line
         tokenizer = self.preferences['source_tokenizer']
-        maxlen = self.preferences['source_max_length']
+        maxlen = int(self.preferences['source_max_length'])
         encoded_line = encode_lines(tokenizer, maxlen, np.array([clean_line(line)]))
         prediction = self.model.predict(encoded_line, verbose=0)[0]
         integers = [np.argmax(vector) for vector in prediction]

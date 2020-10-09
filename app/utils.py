@@ -11,7 +11,6 @@ class S3File():
     def copy_from_S3_to(self, target_location):
         try:
             self.resource.Bucket(self.bucket_name).download_file(self.key, target_location)
-            print(f'{target_location} exists!!!!!!')
         
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] == "404":

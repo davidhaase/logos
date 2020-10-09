@@ -4,7 +4,10 @@ from decimal import Decimal
 import boto3
 from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError
-import pprint
+
+
+from . import logging
+logger = logging.getLogger(__name__)
 
 
 class DynoDB():
@@ -23,14 +26,6 @@ class DynoDB():
     def scan(self):
         response = self.table.scan()
         return response['Items']
-        
-    def get_item(self, model_name):
-        try:
-            response = self.table.get_item(Key={'engine':'devX', 'model_name':model_name})
-        except ClientError as e:
-            print(e.response['Error']['Message'])
-        else:
-            return response['Item']
 
         
     def get_distinct(self, column):
@@ -42,23 +37,38 @@ class DynoDB():
 
         return distinct_values
 
-class dynoTranslation(DynoDB):
+class Translation(DynoDB):
     def __init__(self, table_name='Translations'):
         super().__init__(table_name=table_name)
         
-    def query_translations(self, model_name):       
-        response = self.table.query(
-            KeyConditionExpression=Key('model_name').eq(model_name)
-        )
-        return response['Items']
+    def get_translation(self, model_name, input_string):
+        response = self.table.get_item(Key={'model_name': model_name, 'input_string': input_string})
+        return response['Item'] if 'Item' in response else False
 
-class DynoLanguage(DynoDB):
+        # kce = Key('engine').eq(engine) & Key('model_name').eq(model_name)
+        # try:
+        #     response = self.table.query(KeyConditionExpression=kce)
+
+        # except ClientError as e:
+        #     print(e.response['Error']['Message'])
+        # else:
+        #     return response['Items']
+
+class Language(DynoDB):
     def __init__(self, table_name='Languages'):
         super().__init__(table_name=table_name)
 
-class DynoModel(DynoDB):
+class Model(DynoDB):
     def __init__(self, table_name='Models'):
         super().__init__(table_name=table_name)
+
+    def get_model(self, model_name):
+        try:
+            response = self.table.get_item(Key={'model_name': model_name})
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return response['Item']
 
 
 
@@ -73,7 +83,7 @@ class DynoModel(DynoDB):
     #     for movie in movies:
     #         print(movie['year'], ":", movie['title'])
 
-    def update_movie(title, year, rating, plot, actors, dynamodb=None):
+    def update_movie(self, title, year, rating, plot, actors, dynamodb=None):
         if not dynamodb:
             dynamodb = boto3.resource('dynamodb')
 
@@ -103,7 +113,7 @@ class DynoModel(DynoDB):
     #     pprint(update_response, sort_dicts=False)
 
 
-    def get_movie(title, year, dynamodb=None):
+    def get_movie(self, title, year, dynamodb=None):
         if not dynamodb:
             dynamodb = boto3.resource('dynamodb')
 
@@ -123,7 +133,7 @@ class DynoModel(DynoDB):
     #         print("Get movie succeeded:")
     #         pprint(movie, sort_dicts=False)
 
-    def put_movie(title, year, plot, rating, dynamodb=None):
+    def put_movie(self, title, year, plot, rating, dynamodb=None):
         if not dynamodb:
             dynamodb = boto3.resource('dynamodb', endpoint_url="http://localhost:8000")
 

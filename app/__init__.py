@@ -41,7 +41,7 @@ def create_app(config_name):
                             format='%(asctime)s %(message)s', 
                             datefmt='%m/%d/%Y %I:%M:%S %p',
                             filemode='w', 
-                            level=logging.DEBUG)
+                            level=logging.WARNING)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
