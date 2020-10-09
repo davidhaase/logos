@@ -40,8 +40,8 @@ def create_app(config_name):
     logging.basicConfig(    filename='./logs/logos.log',
                             format='%(asctime)s %(message)s', 
                             datefmt='%m/%d/%Y %I:%M:%S %p',
-                            filemode='w', 
-                            level=logging.WARNING)
+                            filemode='a+', 
+                            level=logging.INFO)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

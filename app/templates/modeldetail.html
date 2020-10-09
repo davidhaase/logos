@@ -16,34 +16,7 @@
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
 </div> -->
 <div class="page-header">
-    <h1>The Machine Translation Models</h1>
-    <h2>Build a new translation model</h2>
-</div>
-<hr/>
-<div class="page=header">
-    <h2>About the Models</h2>
-    <table style="width:100%">
-        <caption>History Table of Translation Models</caption>
-        <tr>
-          <th>Engine</th>
-          <th>Number of Sentences</th>
-          <th>Epochs</th>
-          <th>Source Language</th>
-          <th>Target Language</th>
-          <th>Date Created</th>
-        </tr>
-        {% for model in table_of_model_history %}
-        <tr>
-          <td><a href="./themodels/{{ model[1] }}" target="_blank">{{ model[1] }}</a></td>
-          <td>{{ model[2] }}</td>
-          <td>{{ model[3] }}</td>
-          <td>{{ model[4] }}</td>
-          <td>{{ model[5] }}</td>
-          <td>{{ model[6] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <hr/>
+    <h1>Detail for {{ model_name }}</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egestas accumsan ante, a blandit purus aliquet eget. Aliquam faucibus tempus nibh, vitae porttitor lectus pulvinar vitae. Pellentesque in lacus sed libero porta vestibulum ac et quam. Suspendisse gravida efficitur sem non mattis. Nulla bibendum rutrum dui, non varius ipsum pharetra eu. Morbi porttitor tincidunt mauris non blandit. Integer blandit commodo aliquet. Duis vel mollis ipsum, vitae dictum ex. Mauris ultricies sem in accumsan ornare. Proin diam augue, molestie a quam nec, tincidunt porta dolor. Integer congue, purus vel suscipit tincidunt, magna mi consectetur nibh, vitae molestie tellus sapien a nisi. Integer malesuada purus hendrerit pellentesque elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed finibus fringilla velit. Nulla egestas, elit pharetra consectetur molestie, nibh ex tempor metus, quis tempus quam est non lacus. Donec at feugiat magna.</p>
     
 </div>
