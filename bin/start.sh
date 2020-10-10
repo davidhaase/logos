@@ -52,6 +52,10 @@ echo "Started Logos as process $(cat ${APP_HOME}/run/.pid)."
 
 
 # First, confirm that the PID FILE doesn't already exist
+if [ ! -d ${APP_HOME}/run/ ];then
+  mkdir ${APP_HOME}/run/
+fi
+
 if [ ! -f ${APP_HOME}/run/.pid ];then
   
   # Then, clear out the logs for each job if they already exist
