@@ -12,9 +12,35 @@
 
 # LOCAL PATHS
 # Load the local paths
-APP_HOME=${HOME}/Documents/Projects/logos
+# APP_HOME=${HOME}/Documents/Projects/logos
+APP_HOME="${PWD%/*}"
 LOG_OUT=${APP_HOME}/logs/logos.out
 LOG_ERR=${APP_HOME}/logs/logos.err
+VIRT_ENV=${APP_HOME}/venv
+#Check if the virtual environement already exists
+if [ -d "$VIRT_ENV" ]
+
+# venv directory exists already, so do nothing
+then
+  echo "'$VIRT_ENV' directory already exists, no set-up required"
+
+else
+  echo "venv dir not found; setting up virtual environement"
+
+  # Create a virtual environment
+  python3 -m venv $VIRT_ENV
+
+  # Best-practice to upgrade pip
+  source $VIRT_ENV/bin/activate
+  pip install --upgrade pip
+
+  #Install the requirement packages
+  pip install -r ../requirements.txt
+  deactivate
+
+fi
+
+
 
 echo "Started Logos as process $(cat ${APP_HOME}/run/.pid)."
 
