@@ -2,5 +2,9 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 103-549-827
-127.0.0.1 - - [10/Oct/2020 10:48:58] "[37mGET / HTTP/1.1[0m" 200 -
-127.0.0.1 - - [10/Oct/2020 10:48:58] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:27] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:28] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:30] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:31] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:32] "[37mGET /identify HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:31:33] "[37mGET / HTTP/1.1[0m" 200 -

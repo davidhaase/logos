@@ -12,8 +12,8 @@
 
 # LOCAL PATHS
 # Load the local paths
-# APP_HOME=${HOME}/Documents/Projects/logos
-APP_HOME="${PWD%/*}"
+APP_HOME=${HOME}/Documents/Projects/logos
+# APP_HOME="${PWD%/*}"
 LOG_OUT=${APP_HOME}/logs/logos.out
 LOG_ERR=${APP_HOME}/logs/logos.err
 VIRT_ENV=${APP_HOME}/venv
@@ -35,7 +35,7 @@ else
   pip install --upgrade pip
 
   #Install the requirement packages
-  pip install -r ../requirements.txt
+  pip install -r ${APP_HOME}/requirements.txt --use-feature=2020-resolver
   deactivate
 
 fi
@@ -52,9 +52,9 @@ echo "Started Logos as process $(cat ${APP_HOME}/run/.pid)."
 
 
 # First, confirm that the PID FILE doesn't already exist
-if [ ! -d ${APP_HOME}/run/ ];then
-  mkdir ${APP_HOME}/run/
-fi
+# if [ ! -d ${APP_HOME}/run/ ];then
+#   mkdir ${APP_HOME}/run/
+# fi
 
 if [ ! -f ${APP_HOME}/run/.pid ];then
   

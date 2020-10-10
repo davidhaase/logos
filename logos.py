@@ -1,23 +1,20 @@
 import os
 import click
-from flask_migrate import Migrate
-from app import create_app, db
-from app.models import Translation, Language, TranslationModel, Build, Epoch, Subset
+from app import create_app
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
-migrate = Migrate(app, db)
 
 """Adding the method below allows you to interact with the db models from the
    command-line using the "flask shell" command"""
-@app.shell_context_processor
-def make_shell_context():
-    return dict(db=db, 
-                Translation=Translation, 
-                Language=Language,
-                TranslationModel=TranslationModel,
-                Build=Build, 
-                Epoch=Epoch, 
-                Subset=Subset)
+# @app.shell_context_processor
+# def make_shell_context():
+#     return dict(db=db, 
+#                 Translation=Translation, 
+#                 Language=Language,
+#                 TranslationModel=TranslationModel,
+#                 Build=Build, 
+#                 Epoch=Epoch, 
+#                 Subset=Subset)
 
 
 @app.cli.command()

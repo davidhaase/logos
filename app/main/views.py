@@ -7,7 +7,6 @@ import re
 
 from flask import render_template, session, redirect, url_for, current_app, flash
 
-from .. import db
 from .. import config
 from .. import logging
 logger = logging.getLogger(__name__)

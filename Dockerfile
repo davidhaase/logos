@@ -49,5 +49,3 @@ COPY app app
 COPY config config/
 COPY logos.py .
 COPY config.py .
-COPY data-dev.sqlite .
-COPY migrations migrations/

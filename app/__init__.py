@@ -17,7 +17,6 @@ Flask’s app.config configuration object. -- Miguel Grinberg: Flask Web Develop
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from flask_sqlalchemy import SQLAlchemy
 
 import logging
 import boto3
@@ -26,7 +25,6 @@ from config import config
 
 bootstrap = Bootstrap()
 moment = Moment()
-db = SQLAlchemy()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -35,7 +33,6 @@ def create_app(config_name):
 
     bootstrap.init_app(app)
     moment.init_app(app)
-    db.init_app(app)
 
     logging.basicConfig(    filename='./logs/logos.log',
                             format='%(asctime)s %(message)s', 
