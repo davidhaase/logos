@@ -177,7 +177,7 @@ def index():
         'index.html',
         form=form,
         output_string=session.get('output_string'),
-        form_input=session.get('input_string'), 
+        input_string=session.get('input_string'), 
         ouput_selection=session.get('target_lang_en'),
         input_selection=session.get('source_lang_en'),             
         known=session.get('known', False),

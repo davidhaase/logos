@@ -8,3 +8,106 @@
 127.0.0.1 - - [10/Oct/2020 19:31:31] "[37mGET /about HTTP/1.1[0m" 200 -
 127.0.0.1 - - [10/Oct/2020 19:31:32] "[37mGET /identify HTTP/1.1[0m" 200 -
 127.0.0.1 - - [10/Oct/2020 19:31:33] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:37:32] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:57:10] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:57:10] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:58:34] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 19:58:34] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:13] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:13] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:14] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:59] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:59] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:00:59] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:03:37] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:03:38] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:27] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:32] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:32] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:55] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:55] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:05:56] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:11:15] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:11:16] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:11:16] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:12:05] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:12:05] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:14:33] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:14:33] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:14:35] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:14:35] "[37mGET / HTTP/1.1[0m" 200 -
+2020-10-10 20:14:48.796467: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-10 20:14:48.818474: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fb416cebed0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-10 20:14:48.818517: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [10/Oct/2020 20:14:50] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:14:50] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:16:06] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:16:06] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:16:10] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:16:10] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 20:17:33] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:17:33] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:19:37] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:19:37] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:19:58] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:19:58] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:19:58] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:23:59] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:23:59] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:24:00] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:24:45] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:24:45] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:24:45] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:09] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:09] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:10] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:57] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:57] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:25:57] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:27:17] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:27:17] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:27:40] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:27:40] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:28:17] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:28:17] "[37mGET / HTTP/1.1[0m" 200 -
+2020-10-10 20:28:36.195389: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-10 20:28:36.217554: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc695ed4db0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-10 20:28:36.217598: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [10/Oct/2020 20:28:37] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:28:38] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:31:14] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:31:15] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:31:15] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:32:17] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:32:17] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:32:17] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:00] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:00] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:00] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:16] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:16] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:16] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:28] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:28] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:28] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:49] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:49] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:33:50] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:34:54] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:34:54] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:34:54] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:35:26] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:35:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:35:30] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:35:30] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:35:30] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:36:26] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:36:26] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:36:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
