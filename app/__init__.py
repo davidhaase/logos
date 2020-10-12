@@ -34,11 +34,12 @@ def create_app(config_name):
     bootstrap.init_app(app)
     moment.init_app(app)
 
-    logging.basicConfig(    filename='./logs/logos.log',
-                            format='%(asctime)s %(message)s', 
-                            datefmt='%m/%d/%Y %I:%M:%S %p',
-                            filemode='a+', 
-                            level=logging.INFO)
+    logging.basicConfig(
+        filename='./logs/logos.log',
+        format='%(asctime)s %(message)s', 
+        datefmt='%m/%d/%Y %I:%M:%S %p',
+        filemode='w',
+        level=logging.DEBUG)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

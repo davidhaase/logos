@@ -2,7 +2,7 @@
     opacity:.1;
 } */
 
-td {
+td, th {
   padding: 5px 10px 5px 10px;
 }
 
@@ -12,14 +12,14 @@ td {
 
 /* Left and right column */
 .column.side {
-  width: 15%;
-  margin: 5%;
+  width: 16%;
+  margin: 2%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 65%;
-  margin: 5%;
+  width: 76%;
+  margin: 2%;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */

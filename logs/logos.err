@@ -111,3 +111,1795 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 127.0.0.1 - - [10/Oct/2020 20:36:26] "[37mGET / HTTP/1.1[0m" 200 -
 127.0.0.1 - - [10/Oct/2020 20:36:26] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
 127.0.0.1 - - [10/Oct/2020 20:36:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+2020-10-10 20:46:31.928453: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-10 20:46:31.951996: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f953c95c0e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-10 20:46:31.952034: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [10/Oct/2020 20:46:33] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:46:34] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in index
+    for translation in Translations.scan()
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in <listcomp>
+    for translation in Translations.scan()
+KeyError: 'build_name'
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:47:12] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:47:13] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:45] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in index
+    for translation in Translations.scan()
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in <listcomp>
+    for translation in Translations.scan()
+KeyError: 'build_name'
+127.0.0.1 - - [10/Oct/2020 20:48:45] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:45] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:45] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:45] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:46] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:46] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:48:58] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in index
+    for translation in Translations.scan()
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 42, in <listcomp>
+    for translation in Translations.scan()
+KeyError: 'build_name'
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:49:00] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+2020-10-10 20:50:06.696064: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-10 20:50:06.712602: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fccd5e83e30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-10 20:50:06.712640: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [10/Oct/2020 20:50:08] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:50:08] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:51:26] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:51:26] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:51:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:52:56] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:52:56] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:52:56] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:53:23] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:53:23] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:53:24] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:54:36] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:54:37] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:54:43] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 20:55:47] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 20:58:27] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 20:58:27] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 191, in <module>
+    
+NameError: name 'orders' is not defined
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:23] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:49] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 192, in <module>
+    sorted(orders.items(), key=lambda x: x[1], reverse=True)
+NameError: name 'orders' is not defined
+127.0.0.1 - - [10/Oct/2020 21:03:49] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:49] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:49] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:50] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:03:50] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 21:04:13] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 186, in index
+    table_of_translation_history.items(),
+AttributeError: 'list' object has no attribute 'items'
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:14] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 188, in index
+    reverse=True),
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 187, in <lambda>
+    key=lambda x: x['date_created'],
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:04:50] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 188, in index
+    reverse=True),
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 187, in <lambda>
+    key=lambda x: x['date_created'],
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:07:58] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [10/Oct/2020 21:10:09] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:10:09] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+2020-10-10 21:10:49.057632: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-10 21:10:49.070462: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fd486840e60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-10 21:10:49.070490: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [10/Oct/2020 21:10:50] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [10/Oct/2020 21:10:50] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:11:50] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:11:50] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:11:51] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:12:34] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [10/Oct/2020 21:12:35] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:33:25] "[37mGET /identify HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:33:25] "[36mGET /static/styles/base.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [11/Oct/2020 14:33:40] "[37mGET /diagnose HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:33:41] "[37mGET /identify HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:33:42] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:33:53] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 24, in <module>
+    class PythonForm(FlaskForm):
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 25, in PythonForm
+    python_file = FileField(validators=[FileRequired()])
+NameError: name 'FileField' is not defined
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:43:28] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 24, in <module>
+    class PythonFileForm(FlaskForm):
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 25, in PythonFileForm
+    python_file = FileField(validators=[FileRequired()])
+NameError: name 'FileRequired' is not defined
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:44:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:18] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 412, in modeldetail
+    if form.validate_on_submit():
+NameError: name 'form' is not defined
+127.0.0.1 - - [11/Oct/2020 14:45:18] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:18] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:18] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 424, in modeldetail
+    python_code=python_code,
+NameError: name 'python_code' is not defined
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:45:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 424, in modeldetail
+    python_code=filename,
+UnboundLocalError: local variable 'filename' referenced before assignment
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:46:57] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:49:57] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:49:57] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:53:20] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:53:20] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:54:06] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:54:07] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:55:24] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:55:24] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 14:56:41] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 14:56:42] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 24, in <module>
+    class PythonFileForm(FlaskForm):
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 26, in PythonFileForm
+    FileRequired(),
+NameError: name 'FileRequired' is not defined
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:00:55] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 3, in <module>
+    from wtforms.validators import DataRequired, FileRequired, FileAllowed
+ImportError: cannot import name 'FileRequired' from 'wtforms.validators' (/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/wtforms/validators.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 343, in __call__
+    rv = self._load_unlocked()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 330, in _load_unlocked
+    self._app = rv = self.loader()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 388, in load_app
+    app = locate_app(self, import_name, name)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 247, in locate_app
+    "\n\n{tb}".format(name=module_name, tb=traceback.format_exc())
+flask.cli.NoAppException: While importing "logos", an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 240, in locate_app
+    __import__(module_name)
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 3, in <module>
+    from wtforms.validators import DataRequired, FileRequired, FileAllowed
+ImportError: cannot import name 'FileRequired' from 'wtforms.validators' (/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/wtforms/validators.py)
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:03:11] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:04:31] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:04:31] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:06:49] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:06:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:07:18] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:07:18] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:07:51] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:07:52] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:09:50] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:09:50] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:10:24] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:10:24] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:11:42] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:11:42] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:15:49] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:15:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:16:31] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:16:32] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:17:37] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:17:37] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:18:09] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:18:09] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:18:19] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:18:19] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:18:19] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:20:05] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:20:05] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:20:05] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:20:48] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:20:48] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:20:48] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:22:01] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:22:01] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:23:43] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:23:43] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:24:22] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:24:22] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:24:58] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:24:58] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:25:50] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:25:50] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 15, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 27
+    ])
+    ^
+SyntaxError: invalid syntax
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:19] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:41] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:41] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:27:42] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:28:17] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:28:17] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:28:18] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:29:06] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:29:06] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:30:34] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:30:34] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:31:28] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:31:28] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:32:23] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:32:23] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:33:49] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:33:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:35:24] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:35:24] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:36:27] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:36:47] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [11/Oct/2020 15:36:48] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:37:58] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:38:00] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:38:57] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:38:58] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 414, in modeldetail
+    if form.validate_on_submit(logging):
+TypeError: validate_on_submit() takes 1 positional argument but 2 were given
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 15:40:33] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [11/Oct/2020 16:17:02] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Oct/2020 16:17:02] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:19:17] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:19:17] "[36mGET /static/styles/base.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [12/Oct/2020 15:21:44] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 3, in <module>
+    from app import create_app
+File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43
+    level=logging.DEBUG)
+        ^
+SyntaxError: invalid syntax
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:28:23] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:34] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 43, in create_app
+    level=logging.DEBUG)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/__init__.py", line 1921, in basicConfig
+    raise ValueError('Unrecognised argument(s): %s' % keys)
+ValueError: Unrecognised argument(s): encoding
+127.0.0.1 - - [12/Oct/2020 15:29:34] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:34] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:34] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:34] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:35] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:29:35] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:30:20] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:30:20] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+2020-10-12 15:31:24.942501: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-12 15:31:24.957395: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fed20526250 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-12 15:31:24.957434: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [12/Oct/2020 15:31:26] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [12/Oct/2020 15:31:26] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:34:40] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:34:53] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [12/Oct/2020 15:34:53] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/__init__.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:36:07] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:36:07] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:36:23] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [12/Oct/2020 15:36:24] "[37mGET / HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 416
+    logging.debug(f'DEBUG: {f.filename})
+                                       ^
+SyntaxError: EOL while scanning string literal
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:39:56] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:13] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:14] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:15] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:16] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:19] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:40:21] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:44:06] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:44:06] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:45:01] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:45:02] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:45:45] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:45:45] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:50:45] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:50:45] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 15:57:02] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 15:57:02] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 14, in <module>
+    from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+File "/Users/davidhaase/Documents/Projects/logos/app/main/forms.py", line 26
+    python_file = = FileField(u'Python File', [validators.regexp(u'^[^/\\]\.py$')])
+                  ^
+SyntaxError: invalid syntax
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:04:32] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:05:19] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:05:19] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:06:26] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:06:26] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/forms.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:16:49] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:16:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:22:34] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:22:34] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 417, in modeldetail
+    current_time=datetime.utcnow())
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/davidhaase/Documents/Projects/logos/app/templates/modeldetail.html", line 2, in top-level template code
+    {% import "bootstrap/wtf.html" as wtf %}
+  File "/Users/davidhaase/Documents/Projects/logos/app/templates/base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/Users/davidhaase/Documents/Projects/logos/app/templates/base.html", line 69, in block "content"
+    {% block page_content %}{% endblock %}
+  File "/Users/davidhaase/Documents/Projects/logos/app/templates/modeldetail.html", line 12, in block "page_content"
+    {{ wtf.quick_form(form, enctype="multipart/form-data") }}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/wtf.html", line 200, in template
+    {{ form.hidden_tag() }}
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:20] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:43] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:25:43] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:26:10] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:26:11] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 16:28:57] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 16:28:58] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 17:48:07] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 312, in about
+    with open(json_file) as json_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/davidhaase/Documents/Projects/logos/bin/json/languagedata.json'
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 325, in about
+    Engines.put_item(key)
+  File "/Users/davidhaase/Documents/Projects/logos/app/dynamo.py", line 21, in put_item
+    response = self.table.put_item(Item=item)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/resources/factory.py", line 520, in do_action
+    response = action(self, *args, **kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/resources/action.py", line 83, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/botocore/client.py", line 337, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/botocore/client.py", line 656, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ResourceNotFoundException: An error occurred (ResourceNotFoundException) when calling the PutItem operation: Requested resource not found
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:48:57] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 325, in about
+    Engines.put_item(engine_record)
+  File "/Users/davidhaase/Documents/Projects/logos/app/dynamo.py", line 21, in put_item
+    response = self.table.put_item(Item=item)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/resources/factory.py", line 520, in do_action
+    response = action(self, *args, **kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/resources/action.py", line 83, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/botocore/client.py", line 337, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/botocore/client.py", line 656, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ResourceNotFoundException: An error occurred (ResourceNotFoundException) when calling the PutItem operation: Requested resource not found
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:50:31] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 357, in about
+    pickled_file.copy_from_S3_to(target_pkl)
+  File "/Users/davidhaase/Documents/Projects/logos/app/utils.py", line 13, in copy_from_S3_to
+    self.resource.Bucket(self.bucket_name).download_file(self.key, target_location)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 246, in bucket_download_file
+    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 172, in download_file
+    extra_args=ExtraArgs, callback=Callback)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/transfer.py", line 307, in download_file
+    future.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 106, in result
+    return self._coordinator.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 265, in result
+    raise self._exception
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 126, in __call__
+    return self._execute_main(kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 150, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/download.py", line 571, in _main
+    fileobj.seek(offset)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 367, in seek
+    self._open_if_needed()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 350, in _open_if_needed
+    self._fileobj = self._open_function(self._filename, self._mode)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 261, in open
+    return open(filename, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/davidhaase/Documents/Projects/logos/tmp/model_prefs.pkl.e7cdfCB0'
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:05] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 357, in about
+    pickled_file.copy_from_S3_to(target_pkl)
+  File "/Users/davidhaase/Documents/Projects/logos/app/utils.py", line 13, in copy_from_S3_to
+    self.resource.Bucket(self.bucket_name).download_file(self.key, target_location)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 246, in bucket_download_file
+    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 172, in download_file
+    extra_args=ExtraArgs, callback=Callback)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/transfer.py", line 307, in download_file
+    future.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 106, in result
+    return self._coordinator.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 265, in result
+    raise self._exception
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 126, in __call__
+    return self._execute_main(kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 150, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/download.py", line 571, in _main
+    fileobj.seek(offset)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 367, in seek
+    self._open_if_needed()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 350, in _open_if_needed
+    self._fileobj = self._open_function(self._filename, self._mode)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 261, in open
+    return open(filename, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/davidhaase/Documents/Projects/logos/tmp/model_prefs.pkl.6E2EB0ef'
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:51:30] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 17:55:58] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:00] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:12] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 357, in about
+    pickled_file.copy_from_S3_to(target_pkl)
+  File "/Users/davidhaase/Documents/Projects/logos/app/utils.py", line 13, in copy_from_S3_to
+    self.resource.Bucket(self.bucket_name).download_file(self.key, target_location)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 246, in bucket_download_file
+    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 172, in download_file
+    extra_args=ExtraArgs, callback=Callback)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/transfer.py", line 307, in download_file
+    future.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 106, in result
+    return self._coordinator.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 265, in result
+    raise self._exception
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 126, in __call__
+    return self._execute_main(kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 150, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/download.py", line 571, in _main
+    fileobj.seek(offset)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 367, in seek
+    self._open_if_needed()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 350, in _open_if_needed
+    self._fileobj = self._open_function(self._filename, self._mode)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 261, in open
+    return open(filename, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/davidhaase/Documents/Projects/logos/tmp/model_prefs.pkl.17Ddc991'
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 17:56:15] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:03] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:05] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:08] "[35m[1mPOST /about HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 357, in about
+    pickled_file.copy_from_S3_to(target_pkl)
+  File "/Users/davidhaase/Documents/Projects/logos/app/utils.py", line 13, in copy_from_S3_to
+    self.resource.Bucket(self.bucket_name).download_file(self.key, target_location)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 246, in bucket_download_file
+    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/inject.py", line 172, in download_file
+    extra_args=ExtraArgs, callback=Callback)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/boto3/s3/transfer.py", line 307, in download_file
+    future.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 106, in result
+    return self._coordinator.result()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/futures.py", line 265, in result
+    raise self._exception
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 126, in __call__
+    return self._execute_main(kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/tasks.py", line 150, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/download.py", line 571, in _main
+    fileobj.seek(offset)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 367, in seek
+    self._open_if_needed()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 350, in _open_if_needed
+    self._fileobj = self._open_function(self._filename, self._mode)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/s3transfer/utils.py", line 261, in open
+    return open(filename, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/davidhaase/Documents/Projects/logos/tmp/model_prefs.pkl.51Da4fbc'
+127.0.0.1 - - [12/Oct/2020 18:00:08] "[37mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:08] "[37mGET /about?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:08] "[37mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:09] "[37mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 18:00:52] "[32mPOST /about HTTP/1.1[0m" 302 -
+127.0.0.1 - - [12/Oct/2020 18:00:52] "[37mGET /about HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:53] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:57] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:00:59] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:15:23] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:08] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:10] "[37mGET /identify HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:11] "[37mGET /diagnose HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:14] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:27] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:56] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:17:58] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/translator.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/dynamo.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 17, in <module>
+    from ..dynamo import Translation, Language, Model, Engine
+File "/Users/davidhaase/Documents/Projects/logos/app/dynamo.py", line 75
+    class Model(DynoDB):
+                       ^
+IndentationError: expected an indented block
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:37:10] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:13] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 18, in <module>
+    from ..translator import Translator
+  File "/Users/davidhaase/Documents/Projects/logos/app/translator.py", line 10, in <module>
+    import seaborn as sns
+ModuleNotFoundError: No module named 'seaborn'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 343, in __call__
+    rv = self._load_unlocked()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 330, in _load_unlocked
+    self._app = rv = self.loader()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 388, in load_app
+    app = locate_app(self, import_name, name)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 247, in locate_app
+    "\n\n{tb}".format(name=module_name, tb=traceback.format_exc())
+flask.cli.NoAppException: While importing "logos", an ImportError was raised:
+
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/cli.py", line 240, in locate_app
+    __import__(module_name)
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 18, in <module>
+    from ..translator import Translator
+  File "/Users/davidhaase/Documents/Projects/logos/app/translator.py", line 10, in <module>
+    import seaborn as sns
+ModuleNotFoundError: No module named 'seaborn'
+127.0.0.1 - - [12/Oct/2020 18:40:13] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:13] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:13] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:13] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:14] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:40:14] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[35m[1mGET /themodels/devX HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 426, in modeldetail
+    engine.update_engine_code(engine_name, engine_code)
+AttributeError: 'dict' object has no attribute 'update_engine_code'
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:41:56] "[37mGET /themodels/devX?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 18:42:26] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:42:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:42:49] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:42:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:43:25] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:43:27] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 18:43:58] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:44:00] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:45:40] "[37mGET /themodels HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:45:42] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:45:55] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:45:55] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [12/Oct/2020 18:46:33] "[37mGET /themodels/devX HTTP/1.1[0m" 200 -
+127.0.0.1 - - [12/Oct/2020 18:47:31] "[37mGET /themodels HTTP/1.1[0m" 200 -

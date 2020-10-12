@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
+from flask_wtf.file import FileField, FileRequired
 from wtforms.validators import DataRequired
 
 
@@ -20,3 +21,6 @@ class BuildModelForm(FlaskForm):
 
 class PopulateTablesForm(FlaskForm):
     submit = SubmitField('Load Tables')
+
+class PythonFileForm(FlaskForm):
+    python_file = FileField(validators=[FileRequired()])

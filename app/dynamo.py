@@ -48,6 +48,23 @@ class Language(DynoDB):
     def __init__(self, table_name='Languages'):
         super().__init__(table_name=table_name)
 
+class Engine(DynoDB):
+    def __init__(self, table_name='Engines'):
+        super().__init__(table_name=table_name)
+    
+    def get_engine(self, engine_name):
+        response = self.table.get_item(Key={'engine_name': engine_name})
+        return response['Item'] if 'Item' in response else False
+
+    def update_engine_code(self, engine_name, engine_code):
+        response = self.table.update_item(
+            Key={'engine_name': engine_name},
+            UpdateExpression="set engine_code=:ec",
+            ExpressionAttributeValues={':ec': engine_code},
+            ReturnValues="UPDATED_NEW"
+        )
+        return response
+
 class Model(DynoDB):
     def __init__(self, table_name='Models'):
         super().__init__(table_name=table_name)
@@ -55,6 +72,19 @@ class Model(DynoDB):
     def get_model(self, model_name):
         response = self.table.get_item(Key={'model_name': model_name})
         return response['Item'] if 'Item' in response else False
+
+
+class CMS(DynoDB):
+    def __init__(self, table_name='CMS'):
+        super().__init__(table_name=table_name)
+
+    def get_content_by_language(self, language, html_page):
+        try:
+            response = self.table.get_item(Key={'language': language, 'html_page': html_page})
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return response['Item']
 
 
 

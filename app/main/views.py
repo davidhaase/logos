@@ -9,12 +9,12 @@ from flask import render_template, session, redirect, url_for, current_app, flas
 
 from .. import config
 from .. import logging
-logger = logging.getLogger(__name__)
 
 from . import main
-from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
+from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
+from werkzeug.utils import secure_filename
 
-from ..dynamo import Translation, Language, Model
+from ..dynamo import Translation, Language, Model, Engine
 from ..translator import Translator
 from ..utils import S3File, seconds_to_string
 
@@ -36,7 +36,7 @@ def index():
             translation['source_lang_en'],
             translation['output_string'],
             translation['target_lang_en'],
-            translation['model_name'],
+            translation['build_name'],
             translation['duration']
         ]
         for translation in Translations.scan()
@@ -52,14 +52,13 @@ def index():
     form.form_selection_input_lang.choices = Models.get_distinct('source_lang_en')
     form.form_selection_output_lang.choices =Models.get_distinct('target_lang_en')
 
-    logger.info(f'logger.info from {__file__} and {__name__}')
+    
     
     # USER CLICKS SUBMIT (FORM EVENT) - Build a new record and add it to the Translation table
     if form.validate_on_submit():
 
         # Start a timer to see how long it takes to translate
         start_time = datetime.utcnow()
-        logger.info('logger.info with level=INFO AFTER CLICK')
 
         # Load the data from the form into memory
         build_name = form.form_selection_build.data
@@ -128,6 +127,7 @@ def index():
                 translation = Translation()
                 translation_record={
                     'model_name' : model['model_name'],
+                    'build_name' : build_name,
                     'input_string' : input_string,
                     'source_lang_en' : source_lang_en,
                     'output_string' : output_string,
@@ -136,7 +136,6 @@ def index():
                     'date_created' : date.strftime("%m/%d/%Y, %H:%M:%S")
                 }
                 response = translation.put_item(translation_record)
-                flash(f'Tranlsation added to DB')
 
             except Exception as e:
                 flash(f'Error: not able to add translation to database; {e}') 
@@ -144,6 +143,7 @@ def index():
         # # The translation already exists for this model so used the cached version
         else:
             session['known'] = True
+            flash(f'Showing cached translation which already exists in the database')
             output_string = already_translated['output_string']
                
         # SAVE BROWSER SESSION
@@ -184,8 +184,6 @@ def index():
         table_of_translation_history=table_of_translation_history,
         current_time=datetime.utcnow()
     )
-
-
 
 @main.route('/themodels', methods=['GET', 'POST'])
 def themodels():
@@ -309,11 +307,22 @@ def about():
         # BUILD LANGUAGE TABLE in AWS
         # One-time code to build language table from json file in json dir
         Languages = Language()
-        json_file = current_app.config['APP_DIR'] + '/bin/json/languagedata.json'
+        json_file = current_app.config['APP_DIR'] + '/build/json/languagedata.json'
          
         with open(json_file) as json_file:
             language_list = json.load(json_file)
         form_list = [Languages.load_items(language_list)]
+
+        # BUILD ENGINE TABLE in AWS
+        # One-time code to populate Engine table 
+        filepath = '/Users/davidhaase/Documents/Projects/logos/app/translator.py'
+        f = open(filepath,'r')
+        engine_code = f.read()
+        engine_record = {
+            'engine_name' : 'devX',
+            'engine_code' : engine_code}
+        Engines = Engine()
+        Engines.put_item(engine_record)
 
         # BUILD MODEL TABLE in AWS
         # This is one-time code to rebuild the model table from what it finds on S3
@@ -321,8 +330,6 @@ def about():
         Models = Model()
         s3_dir = S3File('logos-models', 'data')
         form_list = []
-        id = 0
-
         relative_path = 'data/models/'
         list_of_models = s3_dir.crawl_models('data/models')
         for engine in list_of_models:
@@ -343,7 +350,7 @@ def about():
                         epochs = 35
 
                         app_dir = current_app.config['APP_DIR']
-                        target_pkl = f'{app_dir}/tmp/model_prefs.pkl'
+                        target_pkl = f'{app_dir}/build/model_prefs.pkl'
                         s3_pkl = f'{path}pickles/model_prefs.pkl'
                         
                         pickled_file = S3File('logos-models', s3_pkl)
@@ -408,11 +415,15 @@ def about():
 
     return render_template('about.html', form=form, form_list=session.get('form_list'))  
     
-@main.route('/themodels/<model_name>', methods=['GET', 'POST'])
-def modeldetail(model_name): 
+@main.route('/themodels/<engine_name>', methods=['GET', 'POST'])
+def modeldetail(engine_name): 
+    
+    Engines = Engine()
+    engine = Engines.get_engine(engine_name)
     return render_template(
         'modeldetail.html',
-        model_name=model_name,
+        engine_code=engine['engine_code'],
+        model_name=engine_name,
         current_time=datetime.utcnow())  
 
 @main.route('/identify', methods=['GET', 'POST'])
