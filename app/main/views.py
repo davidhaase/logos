@@ -315,7 +315,7 @@ def about():
 
         # BUILD ENGINE TABLE in AWS
         # One-time code to populate Engine table 
-        filepath = '/Users/davidhaase/Documents/Projects/logos/app/translator.py'
+        filepath = '/Users/davidhaase/Documents/Learn/Flatiron/Projects/machine-translator/translator.py'
         f = open(filepath,'r')
         engine_code = f.read()
         engine_record = {
@@ -377,6 +377,7 @@ def about():
                         
                         model_record = { 
                             'model_name' : f'{build}_{source}_{target}',
+                            'model_display_name' : f'{engine} {str(sentences)}K subset {str(epochs)} epochs',
                             'engine' : engine,
                             'build_name' : build,
                             'date_created' : date.strftime("%m/%d/%Y, %H:%M:%S"),
@@ -397,13 +398,13 @@ def about():
                                 'total_count' : model_prefs['total_count'],
                                 'train_count' : model_prefs['train_count'],
                                 'test_count' : model_prefs['test_count']
-                            }#,
-                            # 'BLEUs' : {
-                            #     'BLEU1': Decimal(model_prefs['BLEU1']),
-                            #     'BLEU2': Decimal(model_prefs['BLEU2']),
-                            #     'BLEU3': Decimal(model_prefs['BLEU3']),
-                            #     'BLEU4': Decimal(model_prefs['BLEU4'])
-                            # }                           
+                            },
+                            'BLEUs' : {
+                                'BLEU1': Decimal(str(model_prefs['BLEU1'])),
+                                'BLEU2': Decimal(str(model_prefs['BLEU2'])),
+                                'BLEU3': Decimal(str(model_prefs['BLEU3'])),
+                                'BLEU4': Decimal(str(model_prefs['BLEU4']))
+                            }                           
                         }
 
                         try:
@@ -416,12 +417,12 @@ def about():
     return render_template('about.html', form=form, form_list=session.get('form_list'))  
     
 @main.route('/themodels/<engine_name>', methods=['GET', 'POST'])
-def modeldetail(engine_name): 
+def enginedetail(engine_name): 
     
     Engines = Engine()
     engine = Engines.get_engine(engine_name)
     return render_template(
-        'modeldetail.html',
+        'enginedetail.html',
         engine_code=engine['engine_code'],
         model_name=engine_name,
         current_time=datetime.utcnow())  

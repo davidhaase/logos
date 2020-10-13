@@ -39,7 +39,7 @@
           <td>({{ translation[2] }}) {{ translation[1] }}</td>
           <td>({{ translation [4] }}) {{ translation[3] }}</td>
           <td><a href="/themodels" target="_blank">{{ translation[5] }}</a></td>
-          <td>{{ moment(translation[0]).format('LL') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
+          <td>{{ moment(translation[0]).format('lll') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
           <td>{{ translation[6] }}</td>
         </tr>
         {% endfor %}
