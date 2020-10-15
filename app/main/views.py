@@ -6,13 +6,12 @@ import pickle
 import re
 
 from flask import render_template, session, redirect, url_for, current_app, flash
-
+from flask_paginate import Pagination, get_page_args
 from .. import config
 from .. import logging
 
 from . import main
-from .forms import TranslationForm, BuildModelForm, PopulateTablesForm, PythonFileForm
-from werkzeug.utils import secure_filename
+from .forms import TranslationForm, BuildModelForm, PopulateTablesForm
 
 from ..dynamo import Translation, Language, Model, Engine
 from ..translator import Translator
@@ -30,19 +29,7 @@ def index():
     # LOAD VARIABLES for the PAGE in GENERAL
     # Display a table of all the translations made so far
     Translations = Translation()
-    table_of_translation_history = [
-        [   datetime.strptime(translation['date_created'], "%m/%d/%Y, %H:%M:%S"),
-            translation['input_string'],
-            translation['source_lang_en'],
-            translation['output_string'],
-            translation['target_lang_en'],
-            translation['build_name'],
-            translation['duration']
-        ]
-        for translation in Translations.scan()
-    ]
 
-    
     # LOAD VARIABLES for the FORM
     # Query the TranstionModel table to determine which languages are available as source and target
     # Populate the user options based on these availabilities
@@ -152,7 +139,6 @@ def index():
         session['input_string'] = input_string
         session['source_lang_en'] = source_lang_en
         session['target_lang_en'] = target_lang_en
-        session['table_of_translation_history'] = table_of_translation_history
         session['output_string'] = output_string
         
         return redirect(url_for('.index'))
@@ -160,15 +146,24 @@ def index():
     # MAKE FORM PERSISTENT with BROWSER SESSION VARIABLES
     # Make the selected form values persistent after each translation by resetting the form
     # ...to the values in the session[] dictionary
-    # But the session keys won't exist if it's the first session of the browser
+    # But the session keys won't exist if it's the first session of the browser, so
+    # ...you can set the default values here for a fresh session
     if 'build_name' in session:
-        form.form_selection_build.data = session['build_name']
+       form.form_selection_build.data = session['build_name']
     if 'input_string' in session:
-        form.form_string_input.data= session['input_string']
+        form.form_string_input.data= session['input_string'] 
     if 'source_lang_en' in session:
-        form.form_selection_input_lang.data = session['source_lang_en']
+        form.form_selection_input_lang.data = session['source_lang_en'] 
+    else:
+        session['source_lang_en'] =form.form_selection_input_lang.choices[0]
+    if 'output_string' not in session:
+        session['output_string'] = ' '
+    
     if 'target_lang_en' in session:
-        form.form_selection_output_lang.data= session['target_lang_en']
+        form.form_selection_output_lang.data= session['target_lang_en'] 
+    else:
+        session['target_lang_en'] =form.form_selection_output_lang.choices[0]
+        
         
 
         
@@ -181,7 +176,6 @@ def index():
         ouput_selection=session.get('target_lang_en'),
         input_selection=session.get('source_lang_en'),             
         known=session.get('known', False),
-        table_of_translation_history=table_of_translation_history,
         current_time=datetime.utcnow()
     )
 
@@ -412,6 +406,9 @@ def about():
 
     return render_template('about.html', form=form, form_list=session.get('form_list'))  
     
+def get_translations(translations, offset=0, per_page=10):
+    return translations[offset: offset + per_page]
+
 @main.route('/translationhistory', methods=['GET'])
 def translationhistory():
     # LOAD VARIABLES for the PAGE in GENERAL
@@ -428,9 +425,24 @@ def translationhistory():
         ]
         for translation in Translations.scan()
     ]
+
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    total = len(table_of_translation_history)
+    pagination_translations = get_translations(translations=table_of_translation_history, offset=offset, per_page=per_page)
+    pagination = Pagination(
+        page=page, 
+        per_page=per_page, 
+        total=total,
+        css_framework='bootstrap4')
+    
     return render_template(
         'translationhistory.html',
-        table_of_translation_history=table_of_translation_history,
+        # table_of_translation_history=table_of_translation_history,
+        table_of_translation_history=pagination_translations,
+        page=page,
+        per_page=per_page,
+        pagination=pagination,
         current_time=datetime.utcnow())
     
 @main.route('/themodels/<engine_name>', methods=['GET', 'POST'])

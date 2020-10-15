@@ -4,7 +4,6 @@
 
 {% block page_content %}
 <div class="page-header">
-  <a href="./translationhistory" target="_blank">See all translations</a>
   <h1>Welcome to the <i>Logos</i> Machine Translator</h1>
   <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
@@ -24,8 +23,10 @@
     {% endif %}
     <h2>{{ ouput_selection }}</h2>
     <h4>{{ output_string }}</h4>
-    
+    <hr/>
+    <a href="./translationhistory" target="_blank">See all previous translations</a>
   </div>
+  
 <hr/>
 <br/>
 <!-- Footer -->
