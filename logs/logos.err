@@ -76,3 +76,461 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 127.0.0.1 - - [14/Oct/2020 21:39:45] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
 127.0.0.1 - - [14/Oct/2020 21:39:54] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
 127.0.0.1 - - [14/Oct/2020 21:43:38] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:55:23] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:55:35] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 21:57:32] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:57:32] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:57:38] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:57:40] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 21:58:50] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 21:58:50] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:01:51] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:01:51] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:01:53] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:01:55] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 432, in translationhistory
+    pagination_translations = get_translations(translations=table_of_translation_history, offset=offset, per_page=3)
+TypeError: get_translations() got an unexpected keyword argument 'per_page'
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:02:51] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:51] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:53] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:02:55] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:03:30] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:03:30] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:03:33] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:03:35] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:04:01] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:04:01] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:04:49] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:04:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:04:54] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:06:03] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:06:04] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:06:05] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 428, in translationhistory
+    per_page_parameter=10)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask_paginate/__init__.py", line 238, in get_page_args
+    per_page = int(current_app.config.get(per_page_name.upper(), 10))
+AttributeError: 'int' object has no attribute 'upper'
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:03] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:07:46] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:07:46] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:09:06] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:09:06] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:09:08] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:09:09] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 410
+    offset = (page-1) * 5)
+                         ^
+SyntaxError: invalid syntax
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:14:44] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:20] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:23] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:23] "[37mGET /static/styles/base.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:26] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:30] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:15:32] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:16:21] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:16:22] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:16:25] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:17:12] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:12] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:14] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:32] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:32] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:34] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:56] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:17:58] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:00] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:11] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:14] "[37mGET / HTTP/1.1[0m" 200 -
+2020-10-14 22:18:21.647380: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-10-14 22:18:21.660912: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f949a3d96d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-10-14 22:18:21.660961: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+127.0.0.1 - - [14/Oct/2020 22:18:22] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Oct/2020 22:18:23] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:46] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Oct/2020 22:18:47] "[32mPOST / HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Oct/2020 22:18:47] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:52] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:54] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:18:58] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:27:16] "[37mGET / HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in translationhistory
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'],reverse=True)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in <lambda>
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'],reverse=True)
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:27:19] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in translationhistory
+    newest_first = sorted(all_translations, key = lambda i: int(i['date_created']),reverse=True)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in <lambda>
+    newest_first = sorted(all_translations, key = lambda i: int(i['date_created']),reverse=True)
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:28:51] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in translationhistory
+    newest_first = sorted(all_translations, key = lambda i: int(i['date_created']))
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in <lambda>
+    newest_first = sorted(all_translations, key = lambda i: int(i['date_created']))
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:30:10] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in translationhistory
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'].timestamp())
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in <lambda>
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'].timestamp())
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:35:37] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/logos.py", line 5, in <module>
+    app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/Users/davidhaase/Documents/Projects/logos/app/__init__.py", line 44, in create_app
+    from .main import main as main_blueprint
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/__init__.py", line 28, in <module>
+    from . import views, errors
+File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 433
+    page, per_page, offset = get_page_args(page_parameter='page',
+       ^
+SyntaxError: invalid syntax
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:04] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[35m[1mGET /translationhistory HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/davidhaase/Documents/Projects/logos/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in translationhistory
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'].timestamp)
+  File "/Users/davidhaase/Documents/Projects/logos/app/main/views.py", line 429, in <lambda>
+    newest_first = sorted(all_translations, key = lambda i: i['date_created'].timestamp)
+TypeError: list indices must be integers or slices, not str
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:36:28] "[37mGET /translationhistory?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:37:49] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:37:49] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:37:58] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+ * Detected change in '/Users/davidhaase/Documents/Projects/logos/app/main/views.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 103-549-827
+127.0.0.1 - - [14/Oct/2020 22:38:10] "[37mGET /translationhistory?page=2 HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:38:10] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:38:13] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:39:27] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:39:27] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:40:14] "[37mGET /translationhistory HTTP/1.1[0m" 200 -
+127.0.0.1 - - [14/Oct/2020 22:40:14] "[37mGET /static/images/favicon.ico HTTP/1.1[0m" 200 -

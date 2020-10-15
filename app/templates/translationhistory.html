@@ -7,10 +7,10 @@
     <h1>Translation History</h1>
     <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
-    <h4>Previous Translations</h4>
     <table style="width:100%">
-        <!-- <caption>Translation History</caption> -->
+        {{ pagination.links }}
         <tr>
+            <th>#</th>
             <th>Source</th>
             <th>Target</th>
             <th>Model</th>
@@ -20,15 +20,14 @@
         {% for translation in table_of_translation_history %}
         <tr>
             <td>{{ loop.index + (page - 1) * per_page }}</td>
-            <td>({{ translation[2] }}) {{ translation[1] }}</td>
-            <td>({{ translation [4] }}) {{ translation[3] }}</td>
+            <td>{{ translation[1] }} ({{ translation[2] }}) </td>
+            <td>{{ translation[3] }} ({{ translation [4] }}) </td>
             <td><a href="/themodels" target="_blank">{{ translation[5] }}</a></td>
             <td>{{ moment(translation[0]).format('lll') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
             <td>{{ translation[6] }}</td>
         </tr>
         {% endfor %}
     </table>
-    {{ pagination.links }}
 </div>
 <br/>
 <br/>

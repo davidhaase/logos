@@ -405,16 +405,14 @@ def about():
         return redirect(url_for('.about'))
 
     return render_template('about.html', form=form, form_list=session.get('form_list'))  
-    
-def get_translations(translations, offset=0, per_page=10):
-    return translations[offset: offset + per_page]
+
 
 @main.route('/translationhistory', methods=['GET'])
 def translationhistory():
-    # LOAD VARIABLES for the PAGE in GENERAL
-    # Display a table of all the translations made so far
+    # This page simply shows a table of all existing translations made by Logos
+    # DATABASE: pull a list of all the tranlsations
     Translations = Translation()
-    table_of_translation_history = [
+    all_translations = [
         [   datetime.strptime(translation['date_created'], "%m/%d/%Y, %H:%M:%S"),
             translation['input_string'],
             translation['source_lang_en'],
@@ -426,15 +424,21 @@ def translationhistory():
         for translation in Translations.scan()
     ]
 
+    # SORT
+    # Sort the list in descending order of data; i.e., newest first, oldest last
+    newest_first = sorted(all_translations, key = lambda x: x[0], reverse=True)
+
+    # PAGINATION
+    # Break the tables up, so far, this only defaults to 10 per page
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
-    total = len(table_of_translation_history)
-    pagination_translations = get_translations(translations=table_of_translation_history, offset=offset, per_page=per_page)
+    total = len(newest_first)
+    pagination_translations = newest_first[offset: offset + per_page]
     pagination = Pagination(
         page=page, 
         per_page=per_page, 
         total=total,
-        css_framework='bootstrap4')
+        css_framework='bootstrap3')
     
     return render_template(
         'translationhistory.html',
