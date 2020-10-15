@@ -22,7 +22,7 @@
             <td>{{ loop.index + (page - 1) * per_page }}</td>
             <td>{{ translation[1] }} ({{ translation[2] }}) </td>
             <td>{{ translation[3] }} ({{ translation [4] }}) </td>
-            <td><a href="/themodels" target="_blank">{{ translation[5] }}</a></td>
+            <td><a href="/modelsummary" target="_blank">{{ translation[5] }}</a></td>
             <td>{{ moment(translation[0]).format('lll') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
             <td>{{ translation[6] }}</td>
         </tr>

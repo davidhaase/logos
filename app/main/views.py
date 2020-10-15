@@ -371,15 +371,20 @@ def translationhistory():
         pagination=pagination,
         current_time=datetime.utcnow())
     
-@main.route('/themodels/<engine_name>', methods=['GET', 'POST'])
+@main.route('/modelsummary/<engine_name>', methods=['GET', 'POST'])
 def enginedetail(engine_name): 
     
     Engines = Engine()
     engine = Engines.get_engine(engine_name)
+    accuracy_path = url_for('static', filename='images/accuracy.png')
+    loss_path = url_for('static', filename='images/loss.png')
+    
     return render_template(
         'enginedetail.html',
         engine_code=engine['engine_code'],
         model_name=engine_name,
+        accuracy_path=accuracy_path,
+        loss_path=loss_path,
         current_time=datetime.utcnow())  
 
 @main.route('/identify', methods=['GET', 'POST'])
