@@ -293,10 +293,6 @@ def themodels():
     # if 'subset' in session:
     #     form.form_selection_number_of_sentences.data= session['subset']
 
-    
-
-
-
 
 @main.route('/about', methods=['GET', 'POST'])
 def about():
@@ -415,6 +411,27 @@ def about():
         return redirect(url_for('.about'))
 
     return render_template('about.html', form=form, form_list=session.get('form_list'))  
+    
+@main.route('/translationhistory', methods=['GET'])
+def translationhistory():
+    # LOAD VARIABLES for the PAGE in GENERAL
+    # Display a table of all the translations made so far
+    Translations = Translation()
+    table_of_translation_history = [
+        [   datetime.strptime(translation['date_created'], "%m/%d/%Y, %H:%M:%S"),
+            translation['input_string'],
+            translation['source_lang_en'],
+            translation['output_string'],
+            translation['target_lang_en'],
+            translation['build_name'],
+            translation['duration']
+        ]
+        for translation in Translations.scan()
+    ]
+    return render_template(
+        'translationhistory.html',
+        table_of_translation_history=table_of_translation_history,
+        current_time=datetime.utcnow())
     
 @main.route('/themodels/<engine_name>', methods=['GET', 'POST'])
 def enginedetail(engine_name): 

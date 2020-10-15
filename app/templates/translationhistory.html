@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Translation History</h1>
+    <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
+      ({{ moment(current_time).fromNow(refresh=True) }}).</p>
+    <h4>Previous Translations</h4>
+        <table style="width:100%">
+            <!-- <caption>Translation History</caption> -->
+            <tr>
+            <th>Source</th>
+            <th>Target</th>
+            <th>Model</th>
+            <th>Date Translated</th>
+            <th>Time Elapsed</th>
+            </tr>
+            {% for translation in table_of_translation_history %}
+            <tr>
+            <td>({{ translation[2] }}) {{ translation[1] }}</td>
+            <td>({{ translation [4] }}) {{ translation[3] }}</td>
+            <td><a href="/themodels" target="_blank">{{ translation[5] }}</a></td>
+            <td>{{ moment(translation[0]).format('lll') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
+            <td>{{ translation[6] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+<br/>
+<br/>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+
+      <a href="https://www.notion.so/Logos-fa312d1eb5504c198090ff0da64bc511" target="_blank"> Logos Productions</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  {% endblock %}

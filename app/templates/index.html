@@ -4,8 +4,9 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Welcome to the <i>Logos</i> Machine Translator</h1>
-    <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
+  <a href="./translationhistory" target="_blank">See all translations</a>
+  <h1>Welcome to the <i>Logos</i> Machine Translator</h1>
+  <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
       ({{ moment(current_time).fromNow(refresh=True) }}).</p>
 </div>
 
@@ -16,36 +17,16 @@
   </div>
   
   <div class="column middle">
-    {% if input_string %}
+    
     <h2>{{ input_selection }}</h2>
+    {% if input_string %}
     <h4>{{ input_string }}</h4>
+    {% endif %}
     <h2>{{ ouput_selection }}</h2>
     <h4>{{ output_string }}</h4>
-    {% endif %}
+    
+  </div>
 <hr/>
-<div class="page=header">
-  <h4>Previous Translations</h4>
-    <table style="width:100%">
-        <!-- <caption>Translation History</caption> -->
-        <tr>
-          <th>Source</th>
-          <th>Target</th>
-          <th>Model</th>
-          <th>Date Translated</th>
-          <th>Time Elapsed</th>
-        </tr>
-        {% for translation in table_of_translation_history %}
-        <tr>
-          <td>({{ translation[2] }}) {{ translation[1] }}</td>
-          <td>({{ translation [4] }}) {{ translation[3] }}</td>
-          <td><a href="/themodels" target="_blank">{{ translation[5] }}</a></td>
-          <td>{{ moment(translation[0]).format('lll') }} ({{ moment(translation[0]).fromNow(refresh=True) }})</td>
-          <td>{{ translation[6] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
-<br/>
 <br/>
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
