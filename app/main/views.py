@@ -122,6 +122,8 @@ def index():
                         'date_created' : date.strftime("%m/%d/%Y, %H:%M:%S")
                     }
                     response = translation.put_item(translation_record)
+                    if response:
+                        flash(f'Novel translation added: {output_string}')
 
                 except Exception as e:
                     flash(f'Error: not able to add translation to database; {e}') 
@@ -182,113 +184,48 @@ def index():
         current_time=datetime.utcnow()
     )
 
-@main.route('/themodels', methods=['GET', 'POST'])
-def themodels():
+@main.route('/modelsummary', methods=['GET', 'POST'])
+def summarize_models():
     
     # LOAD VARIABLES for the PAGE in GENERAL
     # Display a table of all the translations made so far
     Models = Model()
-    table_of_model_history = [
-        [   model['model_name'],
-            model['engine'],
-            model['subset'],
-            model['epochs'],
-            model['source_lang_en'],
-            model['target_lang_en'],
-            datetime.strptime(model['date_created'], "%m/%d/%Y, %H:%M:%S")
-        ]
-        for model in Models.scan()
-    ]
+    all_models = {}
+    for model in Models.scan():
+        if model['build_display_name'] not in all_models:
+            engine = model['engine']
+            training_params = f'{model["subset"]}K {model["epochs"]}e'
+            all_models[model['build_display_name']] = {
+                'engine' : engine,
+                'training_params' : training_params,
+                'details' : {}
+
+            }
+
+        languages = f'{model["source_lang_en"]} -> {model["target_lang_en"]}'
+        bleus = model['BLEUs']
+        date_created = datetime.strptime(model['date_created'], "%m/%d/%Y, %H:%M:%S")
+
+        if languages not in all_models[model['build_display_name']]['details']:
+            all_models[model['build_display_name']]['details'][languages] = {'bleus':bleus, 'date_created' : date_created}
+
+
+    # table_of_model_history = [
+    #     [   model['model_name'],
+    #         model['engine'],
+    #         model['subset'],
+    #         model['epochs'],
+    #         model['source_lang_en'],
+    #         model['target_lang_en'],
+    #         datetime.strptime(model['date_created'], "%m/%d/%Y, %H:%M:%S")
+    #     ]
+    #     for model in Models.scan()
+    # ]
     return render_template(
-        'themodels.html',
-        table_of_model_history=table_of_model_history,
+        'modelsummary.html',
+        all_models=all_models,
         current_time=datetime.utcnow()
     )
-    
-
-    # LOAD FORM VARIABLES
-    # Populate all the user dropdown options from the db look-up tables 
-    # form = BuildModelForm()
-    
-    # form.form_selection_source_lang_en.choices = Languages.get_distinct('en_name')
-    # form.form_selection_target_lang_en.choices = Languages.get_distinct('en_name')
-    # form.form_selection_engine.choices = Models.get_distinct('engine')
-    # form.form_selection_number_of_epochs.choices = Models.get_distinct('engine')
-    # form.form_selection_number_of_sentences.choices = [f'{subset.display_string_of_number}' for subset in Subset.query.all()]
-
-    # USER CLICKS SUBMIT (FORM EVENT) - Build a new model record and add it to the TranslationModel table
-    # if form.validate_on_submit():
-
-        # If the model doesn't exist already, use the vars below 
-        # ...to define a new model in the TranslationModel table
-        # ...by loading the submitted form data into memory
-        # source_lang_en = form.form_selection_source_lang_en.data
-        # target_lang_en = form.form_selection_target_lang_en.data
-        # engine = form.form_selection_engine.data
-        # epochs = form.form_selection_number_of_epochs.data
-        # subset = form.form_selection_number_of_sentences.data
-        # date = datetime.utcnow()
-
-        
-        # Create a unique and descriptive name for the model
-        # model_name = f'{engine}__{subset}K_{epochs}E_{source_lang_en}_{target_lang_en}'
-
-        # Query by name, source_lang and target_lang to see if the model exists
-        # Don't rebuild if it already exists for the desired languages
-        # model_record = { 
-        # 'model_name' : f'{engine}_{source}_{target}',
-        # 'engine' : engine,
-        # 'date_created' : date.strftime("%m/%d/%Y, %H:%M:%S"),
-        # 'source_lang_en' : source,
-        # 'target_lang_en' : target,
-        # 'engine' : engine,
-        # 'epochs' : epochs,
-        # 'subset' : subset,
-        # 'source_tokenizer_path' : source_tokenizer_file,
-        # 'source_max_length' : int(model_prefs['source_max_length']),
-        # 'source_word_count' : int(model_prefs['source_vocab_size']),
-        # 'target_tokenizer_path' : target_tokenizer_file,
-        # 'target_max_length' : int(model_prefs['target_max_length']),
-        # 'target_word_count' : int(model_prefs['target_vocab_size']),
-        # 'model_path' : model_path,
-        # 'aws_bucket_name' : 'logos-models',
-        # 'training_counts' : {
-        #     'total_count' : model_prefs['total_count'],
-        #     'train_count' : model_prefs['train_count'],
-        #     'test_count' : model_prefs['test_count']
-        # },
-        # 'BLEUs' : {
-        #     'BLEU1': Decimal(model_prefs['BLEU1']),
-        #     'BLEU2': Decimal(model_prefs['BLEU2']),
-        #     'BLEU3': Decimal(model_prefs['BLEU3']),
-        #     'BLEU4': Decimal(model_prefs['BLEU4'])
-        # }                           
-        # }
-
-        # SAVE BROWSER SESSION
-        # (NB: this is NOT the db session)
-        # session['input_lang'] = input_lang
-        # session['output_lang'] = output_lang
-        # session['build_name'] = build_name
-        # session['epochs'] = epochs
-        # session['subset'] = subset
-        
-        # return redirect(url_for('.themodels'))
-    
-    # LOAD SESSION VARIABLES (for Persistence)
-    # Make the selected form values persistent after each translation by resetting the form
-    # ...to the values in the session[] dictionary
-    # But the session keys won't exist if it's the first session of the browser
-    # if 'source_lang_en' in session:
-    #     form.form_selection_source_lang_en.data = session['source_lang_en']
-    # if 'target_lang_en' in session:
-    #     form.form_selection_target_lang_en.data= session['target_lang_en']
-    # if 'engine' in session:
-    #     form.form_selection_engine.data= session['engine']
-    # if 'epochs' in session:
-    #     form.form_selection_number_of_epochs.data= session['epochs']
-    # if 'subset' in session:
-    #     form.form_selection_number_of_sentences.data= session['subset']
 
 
 @main.route('/about', methods=['GET', 'POST'])

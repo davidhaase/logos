@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div class="page-header">
+    <p>Page last refreshed: {{ moment(current_time).format('LLLL') }}
+      ({{ moment(current_time).fromNow(refresh=True) }}).</p>
+      <h1>Model Summary</h1>
+</div>
+<div>
+  {% for build_name, engine_details in all_models.items() %}
+  <h4>{{ build_name }}</h4>
+  <ul>
+    <li>Engine: <a href="./modelsummary/{{ engine_details.engine }}" target="_blank">{{ engine_details.engine }}</a></li>
+    <li>Training Parameters: {{ engine_details.training_params }}</li>
+  </ul>
+    <table style="width:100%"> 
+      <tr>
+        <th>Language Direction</th>
+        <th>BLEU 1</th>
+        <th>BLEU 2</th>
+        <th>BLEU 3</th>
+        <th>BLEU 4</th>
+        <th>Date Created</th>
+      </tr>
+      {% for languages, details in engine_details.details.items() %}
+      <tr>
+        
+        <td>{{ languages }}</td>
+        {% for label, score in details.bleus.items() %}
+        <td>{{ score }}</td>
+        {% endfor %}
+        <td>{{ details.date_created }}</td>
+        
+      </tr>
+      {% endfor %}
+      
+        
+    </table>
+  <hr/>
+  {% endfor %}
+</div>
+
+{% endblock %}
